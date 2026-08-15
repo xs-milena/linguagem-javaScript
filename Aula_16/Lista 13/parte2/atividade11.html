@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    RA do aluno: <input type="text" id="ipt_ra">
+    <button onclick="consulta(Number(ipt_ra.value))">Consultar</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+ const turma = {
+   "1001": { nome: "Carlos",  nota: 8.5 },
+   "1002": { nome: "Beatriz", nota: 9.0 },
+   "1002": { nome: "Júlia", nota: 7.0 },
+   "1002": { nome: "Ana", nota: 6.0 },
+    };
+
+    function consulta(ra) {
+        if(!(ra in turma)) {
+            div_exibir.innerHTML = `Aluno não encontrado! Digite o RA novamente`
+        } else {
+            div_exibir.innerHTML = `Nome: ${turma[ra].nome}<br> Nota: ${turma[ra].nota}<br>`
+        }
+    }
+</script>

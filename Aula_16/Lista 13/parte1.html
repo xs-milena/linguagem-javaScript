@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valor:<input type="text" id="ipt_valor">
+    <button onclick="deposito()">Depositar</button>
+    <button onclick="saque()">Sacar</button>
+    <div id="div_valor"></div>
+    <br>
+    Filtrar produto: <input type="text" id="ipt_busca">
+    <button onclick="filtro()">Filtrar</button>
+    <div id="div_produto"></div>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+    let aluno = {
+        "nome": "Ana Silva",
+        "ra": 1234567,
+        "curso":  "Ciência da Computação",
+        "semestre": 1,
+    }
+
+
+    div_exibir.innerHTML = `<br>Nome: ${aluno.nome}<br>RA: ${aluno.ra}<br>Curso: ${aluno.curso}<br>Semestre: ${aluno.semestre}<br>`
+
+    let produto = {
+        "nome": "arroz",
+        "preco": 23.90,
+        "quantidade": 10,
+    }
+
+
+    let valor_total = produto.preco * produto.quantidade;
+
+    div_exibir.innerHTML += `<br>Produto: ${produto.nome} | Preço: R$: ${produto.preco} | Quantidade: ${produto.quantidade} | <b> Total:  R$: ${valor_total.toFixed(2)}</b><br>`
+
+    let cliente = {
+        "nome": "João",
+        "idade": 23,
+    }
+
+    let endereco = {
+        "rua": "Linoia",
+        "numero": 123,
+        "cidade": "- Cidade Dos anjos"
+    }
+
+    div_exibir.innerHTML += `<br>Cliente: ${cliente.nome} | Idade: ${cliente.idade} <br><b>Endereço:</b> rua: ${endereco.rua} | número: ${endereco.numero} | cidade: ${endereco.cidade}<br>`
+    
+    let conta = {
+        "titular": "Maria",
+        "saldo": 2000,
+        "banco": "Inter",
+    }
+
+    let saldo = conta.saldo;
+    let valor = Number(ipt_valor.value);
+
+    function deposito() {
+            saldo += valor;
+            div_valor.innerHTML = `<br>Saldo atual: R$:${saldo.toFixed(2)}<br>`
+        
+    }
+
+    function saque() {
+            saldo -= valor;
+            div_valor.innerHTML = `<br>Saldo atual: R$:${saldo.toFixed(2)}<br>`
+    }
+
+    div_valor.innerHTML = `<br>Saldo atual: R$:${saldo.toFixed(2)}<br>`
+
+    const contatos = [
+    {   
+        "nome": "Maria",
+        "telefone": 11981773537,
+    },
+    {   
+        "nome": "Ana",
+        "telefone": 11943275479,
+    },
+    {   
+        "nome": "Júlia",
+        "telefone": 11963755876,
+    },
+    {   
+        "nome": "Jheniffer",
+        "telefone": 11963755876,
+    },
+    ];
+
+    for(let i = 0; i < contatos.length; i++) {
+        div_exibir.innerHTML += `<br>Contato ${i + 1}: ${contatos[i].nome}, ${contatos[i].telefone}<br>`
+    }
+
+    const turma = [
+    {   
+        "nome": "Maria",
+        "nota": 10,
+    },
+    {   
+        "nome": "Ana",
+        "nota": 7,
+    },
+    {   
+        "nome": "Júlia",
+        "nota": 8,
+    },
+    {   
+        "nome": "Jheniffer",
+        "nota": 9,
+    },
+    {   
+        "nome": "Marianna",
+        "nota": 9,
+    },
+    ];
+
+    let soma = 0;
+    
+    for(let i = 0; i < turma.length; i++) {
+        soma += turma[i].nota;
+    }
+
+    let media = soma / turma.length;
+    div_exibir.innerHTML += `<br>A média da turma é: ${media.toFixed(2)}<br>
+                                Maior nota: ${turma[0].nome}<br>
+                                Menor nota: ${turma[1].nome}<br>`;
+
+    const produtos = [
+    {   
+        "nome": "Arroz",
+        "categoria": "Alimento",
+        "preco": 20,
+    },
+    {   
+        "nome": "Feijão",
+        "categoria": "Alimento",
+        "preco": 20,
+    },
+    {   
+        "nome": "Macarrão",
+        "categoria": "Alimento",
+        "preco": 20,
+    },
+    {   
+        "nome": "Molho de Tomate",
+        "categoria": "Alimento",
+        "preco": 20,
+    },
+    {   
+        "nome": "Detergente",
+        "categoria": "Limpeza",
+        "preco": 20,
+    },
+    {   
+        "nome": "Air Fryer",
+        "categoria": "Eletrônico",
+        "preco": 800,
+    },
+    ];
+
+    let busca = ipt_busca.value;
+
+    for(let i = 0; i < produtos.length; i ++) {
+            if(produtos[i].categoria == busca) {
+                div_produto.innerHTML += `Produto ${i+1}: ${produtos[i].nome},  R$: ${produtos[i].preco}<br>`
+            }
+        }
+
+    const pratos = [
+    {
+        "nome": "Pestiscos",
+        "tipo": "entrada",
+        "preco": 90.00
+    },
+    {
+        "nome": "Bala de iorgute",
+        "tipo": "entrada",
+        "preco": 90.00
+    },
+    {
+        "nome": "Suco de Limão",
+        "tipo": "entrada",
+        "preco": 90.00
+    },
+    {
+        "nome": "Lasanha",
+        "tipo": "principal",
+        "preco": 90.00
+    },
+    {
+        "nome": "Sorvete",
+        "tipo": "sobremesa",
+        "preco": 90.00
+    },
+    {
+        "nome": "Bolo",
+        "tipo": "sobremesa",
+        "preco": 90.00
+    },
+    ]
+
+    for(let i = 0; i < pratos.length; i++) {
+        if(pratos[i].tipo == "entrada") {
+            div_produto.innerHTML += `${pratos[i].nome}, ${pratos[i].preco}<br>`
+        } else if (pratos[i].tipo == "principal") {
+            div_produto.innerHTML += `${pratos[i].nome}, ${pratos[i].preco}<br>`
+        } else if (pratos[i].tipo == "sobremesa") {
+            div_produto.innerHTML += `${pratos[i].nome}, ${pratos[i].preco}<br>`
+        }
+    }
+</script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Add código do produto: <input type="text" id="ipt_cod">
+    <button onclick="add(ipt_cod.value)">Adicionar produto</button>
+    <button onclick="finalizar()">Fechar Pedido</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+const cardapio = {
+   "HAM": { 
+    nome: "Hambúrguer Clássico", 
+    preco: 25.90 },
+   "ACA": { 
+    nome: "Açaí 500ml",         
+    preco: 18.00 },
+   "PAO": { 
+    nome: "PÃO DE SAL",
+    preco: 18.00 
+    },
+   "COX": {
+    nome: "Coxinha de Frango",
+    preco: 18.00 },
+   "PAS": { 
+    nome: "Pastel Clássico",
+    preco: 18.00 },
+   "COC": { 
+    nome: "Coca-Cola 500ml",
+    preco: 18.00 },
+    };
+
+    console.log(cardapio);
+    let pedidos = {} // JSON VAZIO, PARA ADD OS PEDIDOS
+    let total = 0;
+
+    function add(codigo) { // como adicionar coisas em um JSON
+        if(codigo in cardapio) {
+            pedidos[codigo] = {
+                "nome":cardapio[codigo].nome,
+                "preco": cardapio[codigo].preco,
+            }
+            total += pedidos[codigo].preco;
+            div_exibir.innerHTML += `<br>Nome:${pedidos[codigo].nome}<br> Preço:${pedidos[codigo].preco}<br>`;
+        }
+
+        console.log(pedidos);
+    }
+
+    function finalizar() {
+            div_exibir.innerHTML = `Total a pagar: R$${total.toFixed(2)}`;
+    }
+</script>

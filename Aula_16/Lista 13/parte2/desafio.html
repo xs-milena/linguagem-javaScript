@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Telefone: <input type="text" id="ipt_telefone">
+    Nome de contato: <input type="text" id="ipt_telnome">
+    Email <input type="text" id="ipt_email">
+    <button onclick="adicionar(ipt_telefone.value)">Criar contato</button>
+    <br>
+    Pesquisar contato: <input type="text" id="ipt_busca">
+    <button onclick="buscar(ipt_telefone.value)">Pesquisar</button>
+    <br>
+    <button onclick="listar(ipt_telefone.value)">Listar contatos</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+    let agenda = [];
+
+    function adicionar(telefone) {
+        let nome = ipt_telnome.value;
+        let email = ipt_email.value;
+
+        agenda[telefone] = {
+            "nome": nome,
+            "email": email,
+        }
+        
+        if(telefone == "" || nome == "" || email == "") {
+            alert("preencha os campos")
+        } else {
+            alert("cadastro realizado")
+        }
+    }
+
+    function buscar(telefone) {
+
+        let busca = ipt_busca.value;
+
+        if(!(telefone in agenda)) {
+           div_exibir.innerHTML = `Contato não encontrado`
+        }
+           div_exibir.innerHTML = `Telefone: ${busca}<br>Nome: ${agenda[telefone].nome}<br> Email: ${agenda[telefone].email}`;
+    }
+
+    function listar(telefone) {
+        let chaves = Object.keys(agenda);
+
+        for(let i = 0; i < chaves.length; i++) {
+            div_exibir.innerHTML += `${agenda[chaves[i]]}`;
+        }
+    }
+</script>

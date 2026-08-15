@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do dia da semana em inglês: <input type="text" id="ipt_nome">
+    <button onclick="traducao(ipt_nome.value)">Traduzir</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+
+<script>
+    const dias = {
+    "monday": "Segunda-feira",
+    "tuesday": "Terça-feira",
+    "wednesday":  "Quarta-feira",
+    "thursday": "Quinta-feira",
+    "friday": "Sexta-feira",
+    "saturday": "Sábado-feira",
+    "sunday": "Domingo",
+    };
+
+    function traducao(nome) {
+
+        if(!(nome in dias)) {
+            div_exibir.innerHTML = `Dia não encontrado`;
+        } else {
+            div_exibir.innerHTML = `${dias[nome]}`; //é como um id
+        }
+    }
+</script>
