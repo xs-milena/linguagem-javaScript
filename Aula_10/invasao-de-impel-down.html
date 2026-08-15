@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Desafio One Piece - Invasão de Impel Down</h1>
+    Quantidade de Batalhas: <input type="text" id="ipt_batalhas">
+    <br>
+    Quantidade de marinheiros em cada batalha: <input type="text" id="ipt_marinheiros">
+    <br>
+    Quantidade de carnes disponíveis: <input type="text" id="ipt_carnes">
+    <br>
+    <button onclick="verificar()">Exibir Resultado</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+function verificar() {
+    div_exibir.innerHTML = "";
+
+    let batalhas = Number(ipt_batalhas.value);
+    let marinheiros = Number(ipt_marinheiros.value);
+    let carnes = Number(ipt_carnes.value);
+
+    let energia = 100;
+    let marinheirosDerrotados = 0;
+    let luffyDerrotado = false;
+
+    for (let batalha_atual = 1; batalha_atual <= batalhas; batalha_atual++) {
+        energia -= 10; 
+
+        for (let marinheiro_atual = 1; marinheiro_atual <= marinheiros; marinheiro_atual++) {
+
+            if (energia < 5 && carnes > 0) {
+                energia += 100;
+                carnes--;
+            }
+
+            if (energia >= 5) {
+                energia -= 5;
+                marinheirosDerrotados++;
+            } else {
+                luffyDerrotado = true; 
+            }
+        }
+    }
+
+    if (luffyDerrotado) {
+        div_exibir.innerHTML = `
+            Resultado: Luffy foi derrotado!<br>
+            Quantidade de carnes restantes: ${carnes}<br>
+            Quantidade de marinheiros derrotados: ${marinheirosDerrotados}<br>
+            Energia restante ao final das batalhas: ${energia}`;
+    } else {
+        div_exibir.innerHTML = `
+            Resultado: Luffy saiu vitorioso!<br>
+            Quantidade de carnes restantes: ${carnes}<br>
+            Quantidade de marinheiros derrotados: ${marinheirosDerrotados}<br>
+            Energia restante ao final das batalhas: ${energia}`;
+    }
+}
+</script>
