@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 17</title>
+</head>
+
+<style>
+    img {
+        width: 140px;
+        height: 100px;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+    <h1>Frequência Escolar: Turista ou Estudioso?</h1>
+    <span>Frequência</span>
+    <input type="text" id="frequenciaAluno">
+    <button onclick="mostrar()">Analisar frequência</button>
+    <br>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function mostrar (){
+        let frequencia = Number(frequenciaAluno.value);
+
+        if (frequencia > 50) {
+            exibir.innerHTML = '<img  src="../img/turista.jpg" alt="" srcset="">';
+        } else {
+             exibir.innerHTML = ' <img src="../img/estudioso.jpg" alt="" srcset="">';
+        }
+    }
+</script>

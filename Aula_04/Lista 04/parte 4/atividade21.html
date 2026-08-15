@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 21</title>
+</head>
+<body>
+    <h1>Pesquisa sobre os tipos de Pokémon</h1>
+    <span>Nome de usuário:</span>
+    <input type="text" id="usuario">
+    <span>Tipo de Pokémon - Fogo, Água, Planta, Elétrico ou Dragão:</span>
+    <input type="text" id="tipo">
+    <button onclick="mensagem()">Pesquisar</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function mensagem (){
+        let nome = usuario.value;
+        let pokemon = tipo.value;
+
+        if (pokemon == 'Fogo') {
+            exibir.innerHTML = "Olá " + nome + ", aqui está as informações sobre o tipo: " + pokemon + "<br>" 
+            + "- Ele é forte contra Planta; <br>"
+            + "- Ele é fraco contra Fogo, Água e Dragão; <br>"
+            + "- Ele é resistente contra Fogo e Planta; <br> "
+            + "- Ele não é resistente contra Água.";
+        } else if (pokemon == 'Água') {
+            exibir.innerHTML = "Olá " + nome + ", aqui está as informações sobre o tipo: " + pokemon + "<br>" 
+            + "- Ele é forte contra Fogo; <br>"
+            + "- Ele é fraco contra Planta, Água e Dragão; <br>"
+            + "- Ele é resistente contra Fogo e Água; <br> "
+            + "- Ele não é resistente contra Planta e Elétrico.";
+        } else if (pokemon == 'Planta') {
+            exibir.innerHTML = "Olá " + nome + ", aqui está as informações sobre o tipo: " + pokemon + "<br>" 
+            + "- Ele é forte contra Água; <br>"
+            + "- Ele é fraco contra Fogo, Planta e Dragão; <br>"
+            + "- Ele é resistente contra Água, Planta e Elétrico; <br> "
+            + "- Ele não é resistente contra Fogo.";
+        } else if (pokemon == 'Elétrico') {
+            exibir.innerHTML = "Olá " + nome + ", aqui está as informações sobre o tipo: " + pokemon + "<br>" 
+            + "- Ele é forte contra Água; <br>"
+            + "- Ele é fraco contra Planta, Elétrico e Dragão; <br>"
+            + "- Ele é resistente contra Elétrico; <br> "
+            + "- Ele não é resistente contra nada.";
+        } else if (pokemon == 'Dragão') {
+            exibir.innerHTML = "Olá " + nome + ", aqui está as informações sobre o tipo: " + pokemon + "<br>" 
+            + "- Ele é forte contra Dragão; <br>"
+            + "- Ele não é fraco contra nada; <br>"
+            + "- Ele é resistente contra Fogo, Água, Planta e Elétrico; <br> "
+            + "- Ele não é resistente contra Dragão.";
+        } else {
+            alert("Pesquisa inválida, esse tipo não existe");
+        }
+    }
+</script>

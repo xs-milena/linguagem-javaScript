@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 01</title>
+</head>
+<body>
+    <h1>Promoção de Chocolates: Calcule o Valor da Sua Compra</h1>
+    <span>Quantos chocolates foram comprados?</span>
+    <input type="text" id="qnt_chocolate">
+    <button onclick="calcular()">Compra</button>
+</body>
+</html>
+
+<script>
+
+    function calcular() {
+        let chocolate = Number(qnt_chocolate.value);
+        let valor = (chocolate * 3.00);
+        let desconto = (chocolate * 2.50);
+
+        if (chocolate > 12) {
+            alert("O valor da sua compra foi de R$: " + desconto);
+        } else {
+            alert("O valor da sua compra foi de R$: " + valor);
+        }
+    }
+</script>

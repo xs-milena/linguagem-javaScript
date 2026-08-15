@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 19</title>
+</head>
+<body>
+    <h1>Verificação de Clima: Alimentos em Bom Estado ou Estragados?</h1>
+    <span>Temperatura do ambiente:</span>
+    <input type="text" id="temperatura">
+    <button onclick="mostrar()">Verificar clima</button>
+    <br>
+    <div id="exibir"></div>
+
+</html>
+
+<script>
+
+    function mostrar(){
+       let temp = Number(temperatura.value);
+
+       if (temp < 10) {
+        exibir.innerHTML= '<img src="../img/fruta.jpg" alt="" srcset="">';
+       } else {
+        exibir.innerHTML= '<img src="../img/estragada.jpg" alt="" srcset="">';
+       }
+    }
+</script>

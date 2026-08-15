@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 20</title>
+</head>
+<body>
+    <h1>Peso no Elevador: Será Que Ele Vai se Mover?</h1>
+    <span>Homens no elevador:</span>
+    <input type="text" id="homens">
+    <span>Mulheres no elevador:</span>
+    <input type="text" id="mulheres">
+    <button onclick="calcular()">Ligar elevador</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        let h =  Number(homens.value) * 90;
+        let m =  Number(mulheres.value) * 70;
+        let total = h + m;
+        let conta = total - 500;
+
+        if (total <= 500) {
+            exibir.innerHTML = "<span style = 'color:green'> Elevador vai se mover, pois está com:  " + total + " kg";
+        } else {
+            exibir.innerHTML = "<span style = 'color:red'> Alguém precisa descer. Precisa perder :  " + conta + " kg para mover o elevador";
+        }
+    }
+</script>
