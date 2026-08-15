@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Carona Compartilhada:</h1>
+   <label for="">Quantas pessoas vão entrar no carro?</label>
+   <input type="text" id="ipt_pessoas">
+   <button onclick="verificar()">#PartiuCarona</button>
+   <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar(){
+        let pessoas = ipt_pessoas.value;
+        exibir.innerHTML = ``;
+        
+        for(contador = 0, posicao = 1; contador < pessoas; contador++, posicao++){
+
+        if (posicao == 1) {
+                exibir.innerHTML += `Entrou o ${posicao}º passageiro (que é o motorista) <br>`;
+        } else if (posicao > 1 && contador < 5) {
+                exibir.innerHTML += `Entrou o ${posicao}º passageiro<br>`;
+        } else {
+            exibir.innerHTML += `O ${posicao}º passageiro terá que esperar! <br>`;
+        }
+
+    }
+}
+</script>

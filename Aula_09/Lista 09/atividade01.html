@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Números Primos</h1>
+    <label for="">Digite um número</label>
+    <input type="text" id="ipt_num">
+    <button onclick="verificar()">Primos</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar(){
+        let i = Number(ipt_num.value);
+        exibir.innerHTML = ``;
+        
+        for(c = 0; c < i; c++) {
+            if(i % i == 0 && i % 1 == 0)  {
+                exibir.innerHTML = `Divisor do Número ${i}: <br> 1 <br> ${i} <br> O número ${i} é um número primo`;
+            } else {
+                exibir.innerHTML += `O número ${i} não é um número primo`;
+            }
+        }
+    }
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Café com Leite na Medida Certa</h1>
+    <label for="">Quantas xícaras de café com leite você já tomou na vida?</label>
+    <input type="text" id="ipt_xicaras">
+    <button onclick="verificar()">Ver a quantidade</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar(){
+        let xicaras = Number(ipt_xicaras.value);
+        let leite = xicaras;
+        let cafe = xicaras * 2;
+
+        for(contador = 1; contador <= xicaras; contador++) {
+        exibir.innerHTML = `${leite} colher(es) com leite em pó e ${cafe} colheres de café em pó<br>`;
+        }
+    }
+</script>

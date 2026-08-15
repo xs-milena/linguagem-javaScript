@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>FizzBuzz</h1>
+    <span>Para números de 1 a 100:</span>
+    <ul>
+        <li>Múltiplo de 3 - Fizz</li>
+        <li>Múltiplo de 5 - Buzz</li>
+        <li>Múltiplo de 3 e 5 - FizzBuzz</li>
+    </ul>
+    <button onclick="verificar()">FizzBuzz</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar(){
+        
+        exibir.innerHTML = ``;
+       
+        for(let contador = 1; contador <=100; contador++) {
+
+             if(contador % 3 && contador % 5 == 0) {
+                exibir.innerHTML += `${contador}. FizzBuzz<br>`;
+            } else if(contador % 3 == 0) {
+                exibir.innerHTML += `${contador}. Fizz<br>`;
+            } else if(contador % 5 == 0) {
+                exibir.innerHTML += `${contador}. Buzz<br>`;
+            } else {
+                 exibir.innerHTML += `${contador}<br>`;
+            }
+        }
+    }
+</script>

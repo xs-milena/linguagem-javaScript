@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Palíndromo</h1>
+    <input type="text" id="ipt_texto">
+    <button onclick="verificar()">Validar Palímdromo</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+     function verificar() {
+
+        let texto = (ipt_texto.value).toLowerCase();
+        let texto_invertido = ``; //campo que será escrito o texto invertido
+        div_exibir.innerHTML = ``;
+        texto = texto.toLowerCase();
+        texto = texto.replaceAll(" ", "");
+
+        //lopping de inverter
+        for(let i = texto.length - 1; i >=0; i--) { //length = tamanho do texto - 1, então a contagem vai começar do último caractere do texto; até que o texto chegue ao 1º caractere (0) ele irá adicionar as letars de trás para frente
+            texto_invertido += texto[i];
+        }
+
+        if(texto_invertido == texto) {
+                div_exibir.innerHTML = `Essa palavra é um palimdromo<br>`;
+        } else {
+                div_exibir.innerHTML = `Essa palavra não é um palimdromo<br>`;
+        }
+
+        div_exibir.innerHTML += `Palavra: ${ipt_texto.value}<br>
+                                 Invertida: ${texto_invertido}`;
+    }   
+    
+</script>

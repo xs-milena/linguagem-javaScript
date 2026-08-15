@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Inverter texto</h1>
+    <input type="text" id="ipt_texto">
+    <button onclick="inverter()">Inverter Texto</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+
+    let invertido = [];
+    let simbolos = [];
+    function inverter() {
+        let texto = ipt_texto.value;
+        div_exibir.innerHTML = ``;
+         //campo que será escrito o texto invertido
+
+        //lopping de inverter
+        for(let i = texto.length - 1; i > 0; i--) { //length = tamanho do texto - 1, então a contagem vai começar do último caractere do texto; até que o texto chegue ao 1º caractere (0) ele irá adicionar as letars de trás para frente
+            div_exibir.innerHTML += invertido[i]
+        }
+
+    }   
+</script>

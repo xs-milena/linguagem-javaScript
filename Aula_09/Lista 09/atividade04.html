@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<body>
+    <h1>Contador de Coca-Colas</h1>
+    <label for="">Quantas Coca-Cola você já bebeu na vida?</label>
+    <input type="text" id="ipt_coca">
+    <button onclick="verificar()">Ver a quantidade</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script> 
+
+    function verificar() {
+        let coca = Number(ipt_coca.value);
+
+        for(contador = 0; contador < coca; contador ++) {
+            exibir.innerHTML += `<img src="/coca.jpg">`;
+        }
+    }
+</script>

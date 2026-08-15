@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poupança</title>
+</head>
+<body>
+    <h2>Poupança</h2>
+    Entre com o valor mensal de depósito: <input id="ipt_deposito" type="number"> <br>
+    Entre com a quantidade de meses: <input id="ipt_meses" type="number"> <br>
+    Entre com o percentual de juros: <input id="ipt_juros" type="number"> <br> <br>
+    Qual é o seu sonho: <input id="ipt_sonho"> <br>
+    Qual o valor do seu sonho: <input id="ipt_valorSonho" type="number">
+    <button onclick="projetar()">Projetar</button><br> <br>
+    <div id="div_msg"></div>
+</body>
+<script>
+    function projetar() {
+
+    let deposito = Number(ipt_deposito.value);
+    let meses = Number(ipt_meses.value);
+    let juros = Number(ipt_juros.value) / 100;
+    let sonho = ipt_sonho.value;
+    let valorSonho = Number(ipt_valorSonho.value);
+
+    div_msg.innerHTML = ``;
+
+    if(deposito <= 0) {
+        div_msg.innerHTML = `Tem que ser maior que zero`;
+    }
+
+    if(meses <= 0 || meses != parseInt(meses)) {
+        div_msg.innerHTML = `Tem que ser maior que zero e inteiro`;
+    }
+
+    if (juros <= 0 || juros > 0.10) {
+        div_msg.innerHTML = `Tem que ser maior que zero e menor que 10%`;
+    }
+
+    if(sonho.length < 3) {
+        div_msg.innerHTML = `Tem que ter ao menos 3 caracteres`;
+    }
+
+    if(valorSonho <= 0 || valorSonho < deposito) {
+        div_msg.innerHTML = `Tem que ser maior que zero e maior que depósito`;
+    }
+
+    let valorFinal = 0;
+
+    for(let i = 1; i <= meses; i++) {
+
+        let valorInicial = valorFinal;
+        let ganhoJuros = valorFinal * juros;
+
+        valorFinal = valorFinal + ganhoJuros + deposito;
+
+        div_msg.innerHTML += `Mês ${i} - Valor Inicial = R$:${valorInicial.toFixed(2)} - Juros = R$:${ganhoJuros.toFixed(2)} - Depósito = R$:${deposito} - Valor Final = R$:${valorFinal.toFixed(2)} <br>`;
+    }
+
+    if(valorFinal > valorSonho) {
+            div_msg.innerHTML += `Parabéns você é um POUPADOR, além do seu sonho de R$: ${valorSonho} ainda sobrou ${(valorFinal - valorSonho).toFixed(2)} para outras aquisições`;
+        } else {
+            div_msg.innerHTML += `<span style = 'color:red' > <b>Você precisa poupar um pouco mais. Para o sonho de ${ipt_sonho.value} de R$: ${valorSonho}, falta R$:${(valorSonho - valorFinal).toFixed(2)}</b></span>`;
+        }
+}
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Bônus Bancário Inteligente</h1>
+   <label for="">Quantos depósitos você fez no banco?</label>
+   <input type="text" id="ipt_deposito">
+   <label for="">Valor de cada depósito</label>
+   <input type="text" id="ipt_valor">
+   <button onclick="verificar()">Acompanhar grana</button>
+   <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+
+       exibir.innerHTML = ``;
+       let deposito = Number(ipt_deposito.value);
+       let valor = Number(ipt_valor.value);
+       total = 0;
+       
+       for(contador = 1; contador <= deposito; contador++) {
+
+            total += valor;
+
+            if((contador % 3) == 0) {
+                total = total * 1.01;
+            } 
+             
+            exibir.innerHTML += `${contador}º Mês:  ${total} <br>`;
+        }
+            exibir.innerHTML += `Total guardado: ${total.toFixed(2)}<br>`;
+    }
+</script>

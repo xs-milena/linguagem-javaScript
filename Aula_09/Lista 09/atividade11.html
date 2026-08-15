@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_nome">
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="exibirDuplicados()">Exibir Duplicados</button>
+    <button onclick="remover()">Remover Duplicatas</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+let vetor = [];
+
+function adicionar() {
+    let nome = ipt_nome.value;
+    vetor.push(nome);
+
+    div_mensagem.innerHTML = '';
+    for (let i = 0; i < vetor.length; i++) {
+        div_mensagem.innerHTML += `${vetor[i]} <br>`; //mostrar a lista de elementos adicionados
+    }
+}
+
+function exibirDuplicados() {   
+    div_mensagem.innerHTML = '';
+
+    for (let i = 0; i < vetor.length; i++) { //mostrar a lista de elementos adicionados
+        div_mensagem.innerHTML += `${vetor[i]} <br>`;
+    }
+
+    div_mensagem.innerHTML += '<p>Duplicados:</p>' //mostrar elementos duplicados
+
+    let pular = [];
+    for (let i = 0; i < vetor.length; i++) {
+    
+        if (pular[i]) { //pula todos os elementos i, já que eles são fixos apenas '1' vez, sobrando os duplicados
+            continue;
+        }
+    
+        let encontrei = false; //encontrar os elentos repetidos
+    
+        for (let j = 0; j < vetor.length; j++) { //looping resposável por fazer isso: j
+            if (vetor[i] == vetor[j] && i != j) { // se o elemento do i e o elemento do j forem iguais && estiverem em indices diferentes, então:
+                encontrei = true;
+                pular[j] = true; //vai pular os 
+            }
+        }
+    
+        if (encontrei) {
+            div_mensagem.innerHTML += `${vetor[i]} <br>`;
+        }
+    }
+}
+    
+function remover() {
+    let removidos = [];
+    div_mensagem.innerHTML = '';
+
+    for (let i = 0; i < vetor.length; i++) {
+
+        let existe = false;
+
+        for (let j = 0; j < removidos.length; j++) {
+            if (vetor[i] == removidos[j]) {
+                existe = true;
+            }
+        }
+
+        if (!existe) {
+            removidos.push(vetor[i]);
+        }
+    }
+
+    vetor = removidos;
+
+    for (let i = 0; i < vetor.length; i++) {
+        div_mensagem.innerHTML += `${vetor[i]} <br>`;
+    }
+}
+
+</script>

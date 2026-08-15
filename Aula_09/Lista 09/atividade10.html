@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fazes da Vida</h1>
+    <label for="">Idade</label>
+    <input type="text" id="ipt_idade" oninput="onInput()">
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function onInput(){
+        let idade = Number(ipt_idade.value);
+        exibir.innerHTML = ``;
+
+        for(let contador = 0; contador <= idade; contador++){
+            if(contador <=4) {
+                exibir.innerHTML +=`${contador} (Primeira Infância)<br>`;
+            } else if (contador > 4 && contador <=6){
+                exibir.innerHTML +=`${contador} (Pré-escolar)<br>`;
+            } else if (contador > 6 && contador <=10){
+                exibir.innerHTML +=`${contador} (Segunda infância)<br>`;
+            } else if (contador > 10 && contador <=18){
+                exibir.innerHTML +=`${contador} (Adolescência)<br>`;
+            } else if (contador > 18 && contador <=50){
+                exibir.innerHTML +=`${contador} (Adulto)<br>`;
+            }else if (contador > 50 && contador <=100){
+                exibir.innerHTML +=`${contador} (Melhor idade)<br>`;
+            } else {
+                 exibir.innerHTML +=`${contador} (Matusalém)<br>`;
+            }
+        }
+    }
+</script>
