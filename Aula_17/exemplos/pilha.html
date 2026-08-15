@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    // exemplo fila
+
+    let pilha = [];
+
+    pilha.push("Prato 1");
+    pilha.push("Prato 2");
+    pilha.push("Prato 3");
+
+    console.log(pilha)
+
+    let proximo = pilha.pop(); //mostra o próximo da listar
+    console.log("Próximo a ser atendido:")
+    console.log(pilha)
+
+    while(pilha.length > 0) {
+        let proximo = pilha.shift(); //mostra o próximo da listar
+        console.log("Próximo a ser atendido:")
+    }
+</script>

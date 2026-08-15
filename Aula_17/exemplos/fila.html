@@ -1,0 +1,36 @@
+<!-- FI FO - removo o primeiro que chegou -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    // exemplo fila
+
+    let fila = [];
+
+    fila.push("Manoel");
+    fila.push("Lucas");
+    fila.push("Otávio");
+    fila.push("Isabela");
+
+    console.log(fila)
+
+    let proximo = fila.shift(); //mostra o próximo da listar
+    console.log("Próximo a ser atendido:")
+    console.log(fila)
+
+    while(fila.length > 0) {
+        let proximo = fila.shift(); //mostra o próximo da listar
+        console.log("Próximo a ser atendido:")
+    }
+</script>

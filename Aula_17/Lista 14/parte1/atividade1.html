@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Fila de Atendimento 🏦</h3>
+    Entrar na fila: <input type="text" id="ipt_cliente">
+    <button onclick="entrar()">Entrar na Fila</button>
+    <button onclick="sair()">Chamar Proximo</button>
+    <p>Fila atual:</p>
+    <div id="div_atual"></div>
+    <p>Próximo:</p>
+    <div id="div_chamando"></div>
+    <p>Histórico:</p>
+    <div id="div_historico"></div>
+</body>
+</html>
+
+<script>
+
+let fila = [];
+let atendidos = [];
+
+function entrar() {
+
+    div_atual.innerHTML = ``;
+
+    let cliente = ipt_cliente.value;
+
+    if(cliente == ``) {
+        alert(`preencha o campo`)
+        return;
+    } 
+
+    fila.push(cliente);
+
+    for(let i = 0; i < fila.length; i++) {
+        div_atual.innerHTML += `- ${fila[i]} entrou na fila. Posição: ${i + 1}<br>`
+    }
+}
+
+function sair() {
+
+    if(fila.length == 0) {
+        div_chamando.innerHTML = `Não há clientes na fila.`;
+        return;
+    }
+
+    div_chamando.innerHTML = ``;
+
+    let proximo = fila.shift();
+
+    div_chamando.innerHTML += `Chamando: ${proximo}. Restam: ${fila.length} pessoa(s) na fila.<br>`
+
+    div_historico.innerHTML = ``;
+
+    atendidos.push(proximo);
+    
+    for(let i = 0; i < atendidos.length; i++) {
+        div_historico.innerHTML += `- ${atendidos[i]}<br>`;
+    }
+}
+</script>

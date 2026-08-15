@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Fila de Impressão 🖨️</h3>
+    Nome do documento: <input type="text" id="ipt_nome">
+    Número de páginas: <input type="text" id="ipt_num">
+    <button onclick="enviar()">Enviar para Impressora</button>
+    <button onclick="proximo()">Imprimir Próximo</button>
+    <p>Documentos na Fila:</p>
+    <div id="div_fila"></div>
+    <p>Documento sendo impresso:</p>
+    <div id="div_impressos"></div>
+      <p>Histórico de impressão:</p>
+    <div id="div_historico">
+    </div>
+</body>
+</html>
+
+<script>
+
+    let fila = [];
+    let numero = [];
+    let historico = [];
+
+function enviar() {
+
+    div_fila.innerHTML = ``;
+
+    let nome = ipt_nome.value;
+    let num = ipt_num.value;
+
+    if(num == 0) {
+        alert(`O número de páginas deve ser maior que zero`)
+        return;
+    } else if(nome == ``|| num == ``) {
+        alert(`Preencha o campos com nome e número`)
+        return;
+    }
+
+    fila.push(nome);
+    numero.push(num);
+    for(let i = 0; i < fila.length && i < numero.length; i++) {
+        div_fila.innerHTML += `Documento: [${fila[i]}] adicionado à fila ([${numero[i]}] páginas).<br>`
+    }
+}
+
+function proximo() {
+
+    div_impressos.innerHTML = ``;
+    
+    if(fila.length == 0) {
+        div_impressos.innerHTML = `Nenhum documento na fila de impressão.`
+        return;
+    }
+
+    let proximo_nome = fila.shift();
+    let proximo_numero = numero.shift();
+
+    div_impressos.innerHTML += `Imprimindo: [${proximo_nome}] ([${proximo_numero}] páginas). Documentos restantes: [${fila.length}]<br>`
+
+    historico.push(proximo_nome);
+
+    div_historico.innerHTML = ``;
+
+    for(let i = 0; i < historico.length; i++) {
+        div_historico.innerHTML += `- Documento: [${historico[i]}]<br>`
+    }
+}
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Histórico de Navegação 🌐</h3>
+    URL: <input type="text" id="ipt_url">
+    <button onclick="visitar()">Visitar</button>
+    <button onclick="voltar()">Voltar</button>
+    <p>Visitando:</p>
+    <div id="div_visitando"></div>
+    <p>Histórico:</p>
+    <div id="div_historico"></div>
+</body>
+</html>
+
+<script>
+
+        let pilha = [];
+        let historico = [];
+
+    function visitar(){
+
+        div_visitando.innerHTML = ``;
+
+        let url = ipt_url.value;
+
+        if(url == ``) {
+            alert(`Digite uma URL antes de visitar`)
+            return;
+        }
+
+        pilha.push(url);
+
+        for(let i = 0; i < pilha.length; i++) {
+            div_visitando.innerHTML += `Visitando: [${pilha[i]}]<br>`
+        }
+
+        div_historico.innerHTML = ``;
+        historico.push(url);
+        for(let j = 0; j < historico.length; j++) {
+            div_historico.innerHTML += `- [${historico[j]}]<br>`
+        }
+    }
+
+    function voltar() {
+        if(historico.length == 0) {
+            alert(`Não há páginas no histórico.`)
+            return;
+        } else if (historico.length == 1) {
+            alert(`Você está na página inicial. Não é possível voltar mais.`)
+        } 
+
+        let remover = historico.pop()
+
+        div_visitando.innerHTML += `Voltando para: [${remover}]<br>`
+    }
+</script>

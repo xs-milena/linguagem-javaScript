@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Desfazer / Refazer (Ctrl+Z / Ctrl+Shift+Z) ✏️</h3>
+    Escreva algo: <input type="text" id="ipt_nome">
+    <button onclick="escrever()">Escrever</button>
+    <button onclick="desfazer()">Desfazer (Ctrl+Z)</button>
+    <button onclick="refazer()">Refazer (Ctrl+Shift+Z)</button>
+    <p>Documento atual:</p>
+    <div id="div_atual"></div>
+    <p>Histórico de ações desfeitas:</p>
+    <div id="div_historico"></div>
+</body>
+</html>
+
+<script>
+
+    let pilha_acoes = [];
+    let pilha_desfeitos = [];
+
+
+    function escrever(){
+         let frase = ipt_nome.value;
+
+         if(frase == ``) {
+            alert(`preencha o campo`)
+            return;
+         }
+
+         div_atual.innerHTML = ``;
+         pilha_desfeitos = [];
+
+         pilha_acoes.push(frase);
+         
+         for(let i = 0; i < pilha_acoes.length; i++) {
+            div_atual.innerHTML += `- ${pilha_acoes[i]}<br>`
+         }
+
+    }
+
+    function desfazer() {
+
+        if(pilha_acoes.length == 0) {
+            div_atual.innerHTML = `Nada para desfazer. Documento vazio.`
+            return;
+        }
+       
+        let remover = pilha_acoes.pop();
+         pilha_desfeitos.push(remover);
+
+        div_historico.innerHTML += `Ação desfeita: [${remover}]<br>`
+
+        div_atual.innerHTML = ``;
+        for(let j = 0; j < pilha_acoes.length; j++){
+            div_atual.innerHTML += `- ${pilha_acoes[j]}<br>`
+        }
+    }
+
+    function refazer() {
+
+        if(pilha_desfeitos.length == 0) {
+            div_historico.innerHTML = `Nada para refazer.`
+            return;
+        }
+
+        let remover2 = pilha_desfeitos.pop();
+        pilha_acoes.push(remover2);
+
+        div_atual.innerHTML = ``;
+        for(let j = 0; j < pilha_acoes.length; j++){
+            div_atual.innerHTML += `- ${pilha_acoes[j]}<br>`
+        }
+
+        div_historico.innerHTML = "";
+
+        for(let i = 0; i < pilha_desfeitos.length; i++) {
+            div_historico.innerHTML += `- ${pilha_desfeitos[i]}<br>`;
+        }
+    }
+</script>
