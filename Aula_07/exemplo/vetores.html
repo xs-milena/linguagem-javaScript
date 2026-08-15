@@ -1,0 +1,58 @@
+<!-- 
+ Vetor é uma estrutura de dados que aloca vários elementos em uma única variavel
+    - permite vários tipos de elementos (núm, texto, etc)  
+        
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    
+ </body>
+ </html>
+
+ <script>
+
+    let frutas = ["Abacate", "Uva", "Maçã", 7, 8.9];
+
+    console.log(frutas);
+    console.log("Tamanho do vetor: ", frutas.length) // length para saber o tamanho do vetor
+    console.log("Primeiro item do vetor: ", frutas[0]); // frutas[0] - 1º item do vetor / frutas[0].length - saber o tamanho do 1º item do vetor
+    console.log("Último item do vetor: ", frutas[frutas.length - 1]); // Último item do vetor
+
+
+    // ao inves de ficar colocar o pochte várias vezes, é mais fácil criar uma variável dela. Igua abaixo:
+    let ultima_fruta = frutas[frutas.length - 1];
+    console.log("Último item do vetor: ", ultima_fruta);
+
+    // add informação dentro do vetor
+    frutas.push("Goiaba", "Pera", "Pera");
+    console.log(frutas)
+
+    // includes - ver se a informação dentro do vetor é verdadeiro ou falso
+    let existe_pera = frutas.includes("Pera");
+    
+    //o idexOf serve para localizar alguma infromação dentro do vetor
+    let indice_pera = frutas.indexOf("Pera");
+
+    if (existe_pera) {
+        console.log(`Existe Pera na lista no indice: ${indice_pera}`);
+    } else {
+        console.log("NÃO existe Pera na lista");
+    }
+
+    // remover itens de trás para frente
+    // frutas.pop();
+
+    // remover o 1º item da lista
+    // frutas.shift();
+
+    //sumir com um item especifico
+    //frutas.splice(2, 1, "Tomate"); //colocar 1º o nº do indice e substitui o "Maça" por "Tomate"
+   
+ </script>

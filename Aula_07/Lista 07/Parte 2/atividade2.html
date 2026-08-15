@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cadastro de Viagens</h1>
+    <span>Lugar:</span>
+    <input type="text" id="ipt_lugar">
+    <span>Valor gasto na viagem:</span>
+    <input type="text" id="ipt_gasto">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="div_exibir"></div>
+    <h1>Buscar lugar</h1>
+    <input type="text" id="ipt_busca">
+    <button onclick="buscar()">Pesquisar</button>
+    <div id="div_busca"></div>
+</body>
+</html>
+
+<script>
+
+    let lugar = [];
+    let gasto = [];
+
+    function cadastrar() {
+        let nome_lugar = ipt_lugar.value;
+        let valor_gasto = Number(ipt_gasto.value);
+
+        lugar.push(nome_lugar);
+        gasto.push(valor_gasto);
+
+        div_exibir.innerHTML += `Lugar: ${nome_lugar} <br> Valor Gasto: ${valor_gasto.toFixed(2)} <br>`;
+    }
+
+    function buscar() {
+        let nome_busca = ipt_busca.value;
+        let existe_busca = lugar.includes(nome_busca);
+
+        // primeira e última viagem
+        let primeira_viagem = lugar.indexOf(nome_busca)
+        let ultima_viagem = lugar.lastIndexOf(nome_busca);
+
+        // pega o gasto da primeira e última viagem, já q o index é o mesmo
+        let primeiro_gasto = gasto[primeira_viagem];
+        let ultimo_gasto = gasto[ultima_viagem];
+
+
+    if (existe_busca && primeira_viagem != ultima_viagem) {
+            div_busca.innerHTML += `Você já visitou ${nome_busca} e gastou ${primeiro_gasto} da primeira vez e ${ultimo_gasto} da última vez <br>`;
+        } else if (existe_busca && primeira_viagem == ultima_viagem) {
+            div_busca.innerHTML += `Você já visitou ${nome_busca} e gastou ${primeiro_gasto} <br>`;
+        } else {
+            div_busca.innerHTML += `Você nunca visitou ${nome_busca} <br>`;
+        }
+    
+    }
+</script>

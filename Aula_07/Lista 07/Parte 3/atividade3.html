@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Gerenciamento de Lista de Alunos</h1>
+    <span>Cadastrar aluno</span>
+    <input  type="text" id="ipt_cadastro">
+    <span>Remover aluno</span>
+    <input  type="text" id="ipt_remover">
+    <button onclick="exibicao()">Exibir Aluno</button>
+    <button onclick="cadastro()">Cadastrar Aluno</button>
+    <button onclick="remover()">Remover Aluno</button>
+    <button onclick="atualizar()">Atualizar Aluno</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+    let exibir = [];
+
+    function exibicao() {
+        let exibir_aluno = ipt_cadastro.value;
+        
+        if (exibir == ``) {
+            div_exibir.innerHTML = `Nenhum aluno cadastrado na lista! <br>`;
+        }  else {
+            div_exibir.innerHTML = `${exibir} <br>`;
+        }
+    }
+
+    function cadastro() {
+
+        let cadastro_aluno = ipt_cadastro.value;
+
+        if (cadastro_aluno == ``) {
+            div_exibir.innerHTML = `Preencha o campo cadastro de aluno! <br>`;
+        } else if (exibir.includes(cadastro_aluno)) {
+            div_exibir.innerHTML = `Aluno(a) já cadastrado! <br>`;
+        } else {
+            exibir.push(cadastro_aluno);
+            div_exibir.innerHTML = `Aluno(a) ${cadastro_aluno} cadastrado com sucesso! <br>`;
+        }
+    }
+
+ function remover() {
+
+    let remover_aluno = ipt_remover.value;
+    let existe_aluno_remocao = exibir.indexOf(remover_aluno);
+
+    if(remover_aluno == ``) {
+        div_exibir.innerHTML = `Preencha o campo de remoção de aluno! <br>`;
+    } else if (exibir.includes(remover_aluno) == false) {
+        div_exibir.innerHTML = `Aluno não encontrado na lista`;
+    } else {
+        exibir.splice(existe_aluno_remocao, 1);
+        div_exibir.innerHTML = `Aluno(a) ${remover_aluno} removido com sucesso!`
+    }
+ }
+   
+   function atualizar() {
+    
+    let cadastro_aluno = ipt_cadastro.value;
+    let remover_aluno = ipt_remover.value;
+    let existe_aluno_remocao = exibir.includes(remover_aluno);
+    let posicao_remocao = exibir.indexOf(remover_aluno);
+    let existe_aluno_cadastro = exibir.includes(cadastro_aluno);
+
+
+
+    if (cadastro_aluno == `` || remover_aluno == ``) { //preencher os campos
+        div_exibir.innerHTML = `Preencha os campos de cadastro e remoção de aluno!`;
+    } else if (cadastro_aluno == remover_aluno) { //nomes iguais
+        div_exibir.innerHTML = `Nada na lista foi alterado`;
+    } else if (existe_aluno_remocao) {  //se existe aluno remoção, e ...
+        if (existe_aluno_cadastro == false) { //não existe aluno cadastrado
+            exibir.splice(posicao_remocao, 1, cadastro_aluno);
+            div_exibir.innerHTML = `Aluno(a) ${remover_aluno} removido. Sendo substituido por ${cadastro_aluno}`; //então: substituição
+        } else if (existe_aluno_cadastro){ // se existe aluno cadastrado, e existe aluno remoção
+            exibir.splice(posicao_remocao, 1);
+            div_exibir.innerHTML = `O aluno(a) ${cadastro_aluno} já existe. <br> Aluno(a) ${remover_aluno} removido com sucesso!` // exclui somente o aluno
+        }
+    } else if (existe_aluno_remocao == false) { //se não existe aluno remoção na lista
+         if(existe_aluno_cadastro == false) { // e também não existe o aluno cadastrado
+            exibir.push(cadastro_aluno); // adiciona somente o aluno cadastrado
+            div_exibir.innerHTML = `Aluno(a) ${cadastro_aluno} cadastrado com sucesso! <br>`;
+         }
+    }
+   }
+
+
+</script>

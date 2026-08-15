@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Competição - Ranking dos 5 melhores filmes de romance</h1>
+    <p>Digite o nome dos 5 melhores filmes de romance que você acredita ser o resultado da competição</p>
+    <span>1º posição</span>
+    <input type="text" id="palpite_1">
+    <br>
+    <span>2º posição</span>
+    <input type="text" id="palpite_2">
+    <br>
+    <span>3º posição</span>
+    <input type="text" id="palpite_3">
+    <br>
+    <span>4º posição</span>
+    <input type="text" id="palpite_4">
+    <br>
+    <span>5º posição</span>
+    <input type="text" id="palpite_5">
+    <br><br>
+    <button onclick="verificar()">Exibir Resultado</button>
+    <div id="palpite"></div>
+    <div id="resultadoFinal"></div>
+    <div id="conhecimento"></div>
+    <div id="campeao"></div>
+    <br>
+    <h2>Meus top's 5 filmes de romance</h2>
+    <p>Monte seu próprio ranking de filmes de romance</p>
+    <input type="text" id="meuCampeao" placeholder="Nome do filme">
+    <button onclick="meu_campeao()">Adicionar</button>
+    <div id="lista"></div>
+    <br>
+    <h2>Buscar filme:</h2>
+    <input type="text" id="nome_campeao" placeholder="Nome do filme">
+    <button onclick="buscar()">Pesquisar</button>
+    <div id="campo_busca"></div>
+</body>
+</html>
+
+<script>
+
+    let competicao = ["A culpa é das estrelas", "Como eu era antes de você", "Diário de uma Paixão", "Orgulho e Preconceito", "A cinco passos de você" ];
+    let listaCampeao = [];
+
+    console.log(competicao);
+
+    function verificar() {
+
+        let n1 = palpite_1.value;
+        let n2 = palpite_2.value;
+        let n3 = palpite_3.value;
+        let n4 = palpite_4.value;
+        let n5 = palpite_5.value;
+        
+        let acertos = 0;
+        let erros = 0;
+        
+        if (n1 == competicao[0]) {
+            palpite.innerHTML += `<h5> Resultado do Palpite: </h5> 1º posição - Acertou! <br>`;
+            acertos ++;
+        } else {
+            palpite.innerHTML += `1º posição - Errou! A resposta era ${competicao[0]} <br>`; 
+            erros ++;
+        }
+
+        if (n2 == competicao[1]) {
+            palpite.innerHTML += `2º posição - Acertou! <br>`;
+            acertos ++;
+        } else {
+            palpite.innerHTML += `2º posição - Errou! A resposta era ${competicao[1]} <br>`;
+            erros ++; 
+        }
+
+        if (n3 == competicao[2]) {
+            palpite.innerHTML += `3º posição - Acertou! <br>`;
+            acertos ++;
+        } else {
+            palpite.innerHTML += `3º posição - Errou! A resposta era ${competicao[2]} <br>`;
+            erros ++;
+        }
+
+        if (n4 == competicao[3]) {
+            palpite.innerHTML += `4º posição - Acertou! <br>`;
+            acertos ++;
+        } else {
+            palpite.innerHTML += `4º posição - Errou! A resposta era ${competicao[3]} <br>`;
+            erros ++;
+        }
+
+        if (n5 == competicao[4]) {
+            palpite.innerHTML += `5º posição - Acertou! <br>`;
+            acertos ++;
+        } else {
+            palpite.innerHTML += `5º posição - Errou! A resposta era ${competicao[4]} <br>`;
+            erros ++;
+        }
+
+        resultadoFinal.innerHTML += `<h5>Total de acertos e erros:</h5> Acertos: ${acertos} <br> Erros: ${erros}`;
+
+        if (acertos > 3) {
+            conhecimento.innerHTML += `<h5>Conhecimento:</h5> Você conhece bem essa competição!`;
+        } else {
+            conhecimento.innerHTML += `<h5>Conhecimento:</h5> Você precisa acompanhar mais essa competição!`;
+        }
+
+        campeao.innerHTML = `<h5>Campeão:</h5> ${competicao[0].toLocaleUpperCase()} 🥇`;
+
+    }
+
+    function meu_campeao() {
+        let nome_campeao = meuCampeao.value;
+        listaCampeao.push(nome_campeao);
+        lista.innerHTML +=  `${nome_campeao}<br>`;
+    }
+
+    function buscar() {
+        let buscar_nome = nome_campeao.value;
+        let existe_lista = listaCampeao.includes(buscar_nome);
+        let existe_sistema = competicao.includes(buscar_nome);
+
+        if (existe_lista && existe_sistema) {
+            campo_busca.innerHTML = `O nome está na sua lista e no sistema!`;
+        } else if (existe_sistema) {
+            campo_busca.innerHTML = `O nome está no sistema!`;
+        } else if (existe_lista) {
+            campo_busca.innerHTML = `O nome está na sua lista!`;
+        } else {
+            campo_busca.innerHTML = `O nome não está presente em nenhuma lista!`;
+        }
+    }
+</script>
