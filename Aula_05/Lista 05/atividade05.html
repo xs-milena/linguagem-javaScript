@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 05</title>
+</head>
+<body>
+    <h1>Classificação de Alunos: Como Está Seu Desempenho?</h1>
+    <span>Nota do aluno:</span>
+    <input type="text" id="notaAluno">
+    <button onclick="verificar()">Analisar Nota</button>
+</body>
+</html>
+
+<script>
+
+    function verificar() {
+        nota = Number(notaAluno.value);
+
+        if (nota < 5){
+            alert("Aluno precisa de muita ajuda");
+        } else if (nota <= 7) {
+            alert("Aluno na média");
+        } else if (nota <= 9.5) {
+            alert("Aluno a cima da média");
+        } else if (nota > 9.5) {
+            alert("Aluno fora da curva");
+        }
+    }
+</script>

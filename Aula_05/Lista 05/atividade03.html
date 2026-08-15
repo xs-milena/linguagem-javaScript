@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 03</title>
+</head>
+<body>
+    <h1> Sensação Térmica: Como o Corpo Humano Percebe a Temperatura</h1>
+    <span>Temperatura</span>
+    <input type="text" id="temperatura">
+    <button onclick="verificar()">Analisar temperaturaa</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar(){
+        let temp = Number(temperatura.value);
+
+        if (temp <= 14) {
+            exibir.innerHTML = "Congelante";
+        } else if (temp < 21) {
+            exibir.innerHTML = "Frio";
+        }else if (temp < 24) {
+            exibir.innerHTML = "Confortável";
+        }else if (temp < 31) {
+            exibir.innerHTML = "Calor";
+        }else if (temp > 31) {
+            exibir.innerHTML = "Calor escaldante";
+        }
+    }
+</script>

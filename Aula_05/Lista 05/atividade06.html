@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 06</title>
+</head>
+<body>
+    <h1>Times Paulistas: O Canto da Sua Torcida!</h1>
+    <span>Qual dos times de São Pualo você torce? - São Paulo, Palmeiras, Corinthias, Santos</span>
+    <input type="text" id="torcida">
+    <button onclick="verificar()">Fale sobre esse time</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar () {
+        let time = torcida.value;
+
+        if (time == 'Corinthians') {
+            exibir.innerHTML = "<span style = 'color: white; background-color: black'> Salve o Corinthians";
+        } else if (time == 'Palmeiras') {
+            exibir.innerHTML = "<span style = 'color: white; background-color: green'> Salve o alviverde imponente";
+        } else if (time == 'Santos') {
+            exibir.innerHTML = "<span style = 'color: black; background-color: white'> Agora quem dá a bola é o Santos"; 
+        } else if (time == 'Tricolor paulista') {
+            exibir.innerHTML = "<span style = 'color:red; background-color: black'> Salve o Tricolor paulista";
+    }
+}
+</script>
