@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Papagaio Falante</h1>
+    <span>Digite uma frase</span>
+    <input type="text" id="ipt_frase">
+    <span>Digite um número</span>
+    <input type="text" id="ipt_num">
+    <button onclick="verificar()">Papagaio</button>
+</body>
+</html>
+
+<script>
+
+    function verificar(){
+        let frase = ipt_frase.value;
+        let num = ipt_num.value;
+        let contador = 0;
+
+        while(contador < num) {
+            contador ++;
+            alert(`${frase}`);
+        }
+    }
+</script>

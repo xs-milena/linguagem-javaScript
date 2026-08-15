@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Frase Repetitiva</h1>
+    <button onclick="verificar()">Diga algo sobre a matéria de Algoritmos</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar (){
+
+        let contador = 0;
+        let frase = `Na matéria de Algoritmos, utilizamos JavaScript`;
+        div_exibir.innerHTML = ``;
+        
+        while(contador < 7) {
+            contador ++;
+            div_exibir.innerHTML += `${frase} <br>`;
+        }
+    }
+</script>

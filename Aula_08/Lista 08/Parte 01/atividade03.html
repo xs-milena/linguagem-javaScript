@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Frase Numerada</h1>
+     <button onclick="verificar()">Diga algo sobre a matéria de Algoritmos</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar (){
+        let quantidade_frase = 0;
+        let posicao_frase = 0;
+        let frase = `Na matéria de Algoritmos, utilizamos JavaScript`;
+        div_exibir.innerHTML = ``;
+
+        while(quantidade_frase < 7) {
+            quantidade_frase ++;
+            posicao_frase ++;
+            div_exibir.innerHTML += `${posicao_frase}. ${frase} <br>`;
+        }
+    }
+</script>
+</body>
+</html>

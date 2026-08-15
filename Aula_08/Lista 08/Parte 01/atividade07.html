@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Viva o 7!</h1>
+    <span>Digite um número entre 0 e 200</span>
+    <input type="text" id="ipt_num">
+    <button onclick="verificar()">Viva o 7!</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+   
+    function verificar() {
+        let num = Number(ipt_num.value);
+        let contador = 0;
+        let multiplicacao = 0;
+        div_exibir.innerHTML = ``;
+
+        if(num >= 0 && num <= 200) {
+            while(contador < num) {
+                contador ++;
+                multiplicacao = contador * 7;
+
+                div_exibir.innerHTML += `${multiplicacao} <br>`;
+         }
+       }    
+    }
+</script>

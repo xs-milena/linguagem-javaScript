@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pares no Intervalo </h1>
+    <span>Intervalo crescente:</span>
+    <span>Inicio</span>
+    <input type="text" id="ipt_inicio">
+    <span>Fim</span>
+    <input type="text" id="ipt_fim">
+    <button onclick="verificar()">S2 Pares</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar() {
+
+        let inicio = Number(ipt_inicio.value);
+        let fim = Number(ipt_fim.value);
+        let contador = 0;
+        div_exibir.innerHTML = ``;
+        
+        while(contador < fim) {
+            contador ++;
+
+            if((contador % 2) == 0) {
+            div_exibir.innerHTML += `${contador} <br>`;
+            }
+        }
+    }
+</script>
