@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 13</title>
+</head>
+<body>
+    <h1>Cálculo de Gastos com Transporte</h1>
+    <span>Valor da passagem de ônibus:</span>
+    <input type="text" id="passagem">
+    <span>Quantidade de viagens por mês:</span>
+    <input type="text" id="viagens">
+    <span>Distância da casa até o trabalho - em Km</span>
+    <input type="text" id="km">
+    <button onclick="Calcular()">Calcular VT</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+    function Calcular() {
+        let uber = Number(viagens.value) * 0.10; //10% uber
+        let gastoUber = (0.75 * Number(km.value)) * uber;
+        let gastoOnibus = (Number(passagem.value) * Number(viagens.value)) * 0.90; //90% ônibus
+        let gastoTotal = gastoOnibus + gastoUber;
+
+        div_exibir.innerHTML = "Você vai gastar R$: " + gastoTotal.toFixed(2) + " reais por mês com transporte.";
+    }
+</script>

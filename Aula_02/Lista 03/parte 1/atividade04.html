@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 04</title>
+</head>
+<body>
+    <h1>O Ki dos Sayajins!</h1>
+    <span>Nome do guerreiro:</span>
+    <input type="text" id="input_nome">
+    <span>Seu ki:</span>
+    <input type="number" id="input_ki">
+    <button onclick="calcular()">Ver ki em cada forma</button>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        alert("O ki de " + input_nome.value + " na forma Super Sayajin é " + (Number(input_ki.value) * 50 ));
+        alert("O ki de " + input_nome.value + " na forma Super Sayajin é " + (Number(input_ki.value) * 100));
+    }
+</script>

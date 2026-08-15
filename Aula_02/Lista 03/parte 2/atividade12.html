@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 12</title>
+</head>
+<body>
+    <h1>Divisão Justa da Pizza (Com Gorjeta)</h1>
+    <span>Sabor da Pizza:</span>
+   <input type="text" id="sabor">
+   <span>Preço da Pizza:</span>
+   <input type="text" id="preco">
+   <span>Quantidade de amigos:</span>
+   <input type="text" id="amigos">
+   <button onclick="calcular()">Ver valor por amigo</button>
+   <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+      let caixinha = Number(preco.value) * 0.10;
+      let valorPizza = caixinha + (Number(preco.value) / Number(amigos.value));
+        div_exibir.innerHTML = "Cada amigo vai contribuir com R$: " + valorPizza.toFixed(2) + " reais. Pizza sabor: " + sabor.value;
+    }
+</script>

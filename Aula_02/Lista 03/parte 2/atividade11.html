@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 11</title>
+</head>
+<body>
+    <h1>Tabuada Interativa</h1>
+    <span>Tabuada até o 9 do número:</span>
+    <input type="text" id="num">
+    <button onclick="calcular()">Ver tabuada</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+    contador = 0
+    function calcular() {
+        let numero = Number(num.value);
+        let x1 = numero * 1;
+        let x2 = numero * 2;
+        let x3 = numero * 3;
+        let x4 = numero * 4;
+        let x5 = numero * 5;
+        let x6 = numero * 6;
+        let x7 = numero * 7;
+        let x8 = numero * 8;
+        let x9 = numero * 9;
+
+        div_exibir.innerHTML = numero + " x1 = " + x1 + "<br>"
+        + numero + "x2 = " + x2 + "<br>"
+        + numero + "x3 = " + x3 + "<br>"
+        + numero + "x4 = " + x4 + "<br>"
+        + numero + "x5 = " + x5 + "<br>"
+        + numero + "x6 = " + x6 + "<br>"
+        + numero + "x7 = " + x7 + "<br>"
+        + numero + "x8 = " + x8 + "<br>"
+        + numero + "x9 = " + x9 + "<br>";
+    }
+</script>

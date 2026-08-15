@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 01</title>
+</head>
+<body>
+    <h1>Aposentadoria: Quanto Falta?</h1>
+    <span>Informe a sua idade (caso for homem):</span>
+    <input type="number" id="input_homem">
+    <button onclick="homem()">Aposentadoria Homem</button>
+    <span>Informe a sua idade (caso for mulher):</span>
+    <input type="number" id="input_mulher">
+    <button onclick="mulher()">Aposentadoria Mulher</button>
+</body>
+</html>
+
+<script>
+    function homem() {
+        alert("Faltam " + ( 70 - Number(input_homem.value) + " anos para voce se aposentar."));
+    }
+    function mulher() {
+        alert("Faltam " + (60 - Number(input_mulher.value) + " anos para voce se aposentar."))
+    }
+</script>

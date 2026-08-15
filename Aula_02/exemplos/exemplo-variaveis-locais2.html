@@ -1,0 +1,38 @@
+<!-- com variáveis-->
+<!-- escopo - onde a variável funciona -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2</title>
+</head>
+<body>
+    <span>Nota 1:</span>
+    <input type="text" id="input_nota1">
+    <span>Nota 2:</span>
+    <input type="text" id="input_nota2">
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <div id="div_mensagem"></div>
+    <button onclick="exibirResultado()">Calcular Resultado</button>
+</body>
+</html>
+<script>
+let media = 0; //a média se inicia com o valor 0
+
+function calcularMedia() {
+    // essas variáveis só funcionam para essa função
+    let nota1 = Number(input_nota1.value);
+    let nota2 = Number(input_nota2.value);
+    let media = (nota1 + nota2) / 2; //quando esse código rodar, a média vai ter um novo valor
+
+    div_mensagem.innerHTML = `A media é:" ${media}`; //outra maneira de aparecer a média
+    div_mensagem.innerHTML = `A media é:" ${media.toFixed(2)}`;
+    // alert("A média é: " + media);
+}
+
+function exibirResultado() {
+    alert("A média é: " + media); // n tem atribuição de média aqui, eu nn defini nenhum calculo para essa função. Então ele irá usar a média 0.
+}
+</script>

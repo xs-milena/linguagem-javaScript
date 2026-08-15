@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 14</title>
+</head>
+<body>
+    <h1>Transformações Saiyajin e Poder de Luta</h1>
+    <span>"ki base" (força base) do guerreiro Sayajin:</span>
+    <input type="text" id="forca">
+    <br>
+    <p>Transformar em...</p>
+    <button onclick="SSJ1()">SSJ 1</button>
+    <button onclick="SSJ2()">SSJ 2</button>
+    <button onclick="SSJ3()">SSJ 3</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+    function SSJ1 () {
+        let poder = Number(forca.value) * 50;
+        div_exibir.innerHTML = "Após se transformar em SSJ, o ki desse Sayajin passa a ser de " + poder;
+    }
+
+      function SSJ2 () {
+        let poder = Number(forca.value) * 100;
+        div_exibir.innerHTML = "Após se transformar em SSJ 2, o ki desse Sayajin passa a ser de " + poder;
+    }
+
+      function SSJ3 () {
+        let poder = Number(forca.value) * 200;
+        div_exibir.innerHTML = "Após se transformar em SSJ 3, o ki desse Sayajin passa a ser de " + poder;
+    }
+</script>

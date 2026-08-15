@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 06</title>
+</head>
+<body>
+    <span>Número 1:</span>
+    <input type="text" id="input_num1">
+    <span>Número 2:</span>
+    <input type="text" id="input_num2">
+    <button onclick="calcularSoma()">Somar</button>
+    <button onclick="calcularDiferenca()">Subtração</button>
+    <button onclick="calcularProduto()">Produto</button>
+    <button onclick="calcularRazao()">Razão</button>
+    <div id="resposta"></div>
+</body>
+</html>
+
+<script>
+    function calcularSoma() {
+        resposta.innerHTML = "A soma entre " + input_num1.value + " e " + input_num2.value + " é " + (Number(input_num1.value) + Number(input_num2.value));
+    }
+
+    function calcularDiferenca() {
+       resposta.innerHTML = "A soma diferença entre " + input_num1.value + " e " + input_num2.value + " é " + (Number(input_num1.value) - Number(input_num2.value));
+    }
+
+    function calcularProduto() {
+        resposta.innerHTML = "A soma diferença entre " + input_num1.value + " e " + input_num2.value + " é " + (Number(input_num1.value) * Number(input_num2.value));
+    }
+
+    function calcularRazao() {
+        resposta.innerHTML = "A soma diferença entre " + input_num1.value + " e " + input_num2.value + " é " + (Number(input_num1.value) / Number(input_num2.value));
+    }
+    
+</script>

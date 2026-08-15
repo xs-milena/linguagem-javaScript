@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 05</title>
+</head>
+<body>
+    <h1>Cálculo da Média na SPTech</h1>
+    <span>Nome:</span>
+    <input type="text" id="input_nome">
+    <span>Nota das avaliações Continuadas</span>
+    <input type="number" id="input_continuada">
+    <span>Nota das avaliações de Pesquisa e Inovação</span>
+    <input type="number" id="input_pi">
+    <button onclick="calcular()">Cacular média</button>
+    <span id="exibir"></span>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        exibir.innerHTML = "A média de " + input_nome.value + " será de " + (Number(input_continuada.value * 0.4) + Number(input_pi.value * 0.6)); // A média seria a soma dos dois, pois são coisas separdas. Quando vc pega só 40% de 100% e 60% de 100%, vc já faz a média de cada uma. Dps vc soma as duas médias para ter a média total.
+       }
+</script>

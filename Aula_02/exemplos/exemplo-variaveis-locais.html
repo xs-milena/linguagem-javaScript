@@ -1,0 +1,23 @@
+<!-- sem variáveis -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2</title>
+</head>
+<body>
+    <span>Nota 1:</span>
+    <input type="text" id="input_nota1">
+    <span>Nota 2:</span>
+    <input type="text" id="input_nota2">
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+function calcularMedia() {
+    div_mensagem.innerHTML = "A média é: " +  ((Number(input_nota1.value) + Number(input_nota2.value)) / 2);
+}
+</script>

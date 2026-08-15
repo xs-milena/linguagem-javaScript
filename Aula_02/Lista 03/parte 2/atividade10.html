@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Atividade 10</title>
+</head>
+<body>
+    <h1>Analisador de Resultados Eleitorais</h1>
+    <span>Votos do candidato A:</span>
+    <input type="number" id="input_A">
+    <br>
+    <span>Votos do candidato B:</span>
+    <input type="number" id="input_B">
+    <br>
+    <span>Votos em branco:</span>
+    <input type="number" id="input_branco">
+    <br>
+    <span>Votos nulos:</span>
+    <input type="number" id="input_nulo">
+    <br>
+    <button onclick="calcular()">Resultado da eleição</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+  function calcular() {
+    let candidatoA = Number(input_A.value);
+    let candidatoB = Number(input_B.value);
+    let branco = Number(input_branco.value);
+    let nulo = Number(input_nulo.value);
+
+    let total = candidatoA + candidatoB + branco + nulo;
+    let votosA = (candidatoA / total) * 100;
+    let votosB =  (candidatoB / total) * 100;
+    let invalidos  = ((branco + nulo) / total) * 100;
+
+
+    div_exibir.innerHTML = "Total de votos: " + total 
+    + "<br> Candidato A: " + votosA.toFixed(2) + " %"
+    + "<br> Candidato B: " + votosB.toFixed(2) + " %"
+    + "<br> Inválidos:" + invalidos.toFixed(2) + " %";
+}
+</script>

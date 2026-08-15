@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span> Número 01:</span>
+    <input type="number" id="input_n1"> <!--input#{nome do id}-->
+    <span>Número 02:</span>
+    <input type="number" id="input_n2">
+    <button onclick="calcular()">Calcular</button> <!--ao cliclar, ele irá executar a função-->
+</body>
+</html>
+
+<script>
+function calcular() {
+    alert("A soma é: " + (Number(input_n1.value) + Number(input_n2.value))); //Number é para identificar valores numéricos. Já que o input_n1 vai ser um número
+    alert("A subtração é: " + (Number(input_n1.value) - Number(input_n2.value)));
+    alert("A multiplicação é: " + (Number(input_n1.value) * Number(input_n2.value)));
+    alert("A divisão é: " + (Number(input_n1.value) / Number(input_n2.value)));
+    alert("O resto da divisão é: " + (Number(input_n1.value) % Number(input_n2.value)));
+    alert("Raiz quadrada do n1: " + (Number(input_n1.value) ** 0.5));
+    alert("Raiz quadrada do n2: " + (Number(input_n1.value) ** 0.5)); //o 0.5 serve para descobrir a raiz quadrada
+}
+</script>
