@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+</head>
+<style>
+   img {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+<body>
+    <img id="imagem" src="" alt="">
+</body>
+</html>
+<script>
+for(let i =0 ; i<10 ;i++){
+    fetch("https://api.thecatapi.com/v1/images/search")
+    .then(resposta => resposta.json())
+    .then(json => {
+        
+        imagem.src = json[0].url;
+    })
+    .catch(error => {
+        console.error(error);
+    });
+}
+</script>
+
