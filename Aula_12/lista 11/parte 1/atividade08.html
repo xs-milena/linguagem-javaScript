@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="verificar1()">Gerar uma nota de aluno entre 0 e 10</button>
+    <div id="div_nota"></div>
+    <button onclick="verificar2()">Gerar uma frequência de aluno entre 0 e 100</button>
+    <div id="div_frequencia"></div>
+    <button onclick="situacao()">Ver situacao</button>
+</body>
+</html>
+
+<script>
+    
+    let nota = Math.floor(Math.random() * 10);
+    let frequencia = Math.floor(Math.random() * 100);
+
+    function verificar1(){
+        div_nota.innerHTML = `Nota: ${nota.toFixed(2)}<br>`;
+    }
+
+    function verificar2(){
+        div_frequencia.innerHTML = `Frequência: ${frequencia.toFixed(2)}%<br>`;
+    }
+
+    function situacao() {
+        if (nota < 6 && frequencia < 75) {
+           alert(`Aluno em situação crítica: nota e frequência baixa`);
+        }
+
+        if (nota < 6 && frequencia >= 75) {
+            alert(`Aluno em situação de alerta: nota baixa e frequência boa`);
+        }
+
+        if (nota >= 6 && frequencia < 75) {
+            alert(`Aluno em situação de alerta: nota boa e frequência baixa`);
+        }
+
+        if (nota >= 6 && frequencia >= 75) {
+            alert(`Aluno em situação boa: nota e frequência exelentes!`);
+        }
+
+    }
+</script>

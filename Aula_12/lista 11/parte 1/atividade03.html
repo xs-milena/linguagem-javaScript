@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div {
+        background-color: black;
+        color:  white;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+</style>
+
+<body>
+    <h1>D20</h1>
+  <button onclick="verificar()">Jogar dado</button>
+<div id="div_exibir"></div>  
+</body>
+</html>
+
+
+<script>
+
+    function verificar(){
+
+    let num = Math.random() * (20-1) + 1;
+        
+        div_exibir.innerHTML = `${num.toFixed(0)}`;
+
+
+    }
+
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="verificar()">Jogar</button>
+    <div id="div_exibir"></div>
+    <div id="div_placar"></div>
+</body>
+</html>
+
+<script>
+
+    let jogador1 = 0;
+    let jogador2 = 0;
+    let escolha_jogador1 = 0;
+    let escolha_jogador2 = 0;
+
+    function verificar(){
+        let escolha_jogador1 = Math.floor(Math.random () * 6);
+        let escolha_jogador2 = Math.floor(Math.random () * 6);
+
+        if (escolha_jogador1 > escolha_jogador2) {
+            jogador1++
+        } else {
+            jogador2++
+        } 
+
+        if (jogador1 > jogador2) {
+            div_placar.innerHTML =  `O jogador 1 está vencendo!` 
+        } else if (jogador2 > jogador1) {
+            div_placar.innerHTML = `O jogador 2 está vencendo!` 
+        } else {
+            div_placar.innerHTML = `O jogo está empatado!`
+        }
+
+        div_exibir.innerHTML = `Jogador 1: ${jogador1}<br>
+                                Jogador 2: ${jogador2}<br>`
+    }
+</script>

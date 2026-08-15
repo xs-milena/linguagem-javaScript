@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="verificar()">Sortear Temperatura</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar() {
+    let temperatura = Number(Math.floor(Math.random() * (20 - (-20)) + (-20)));
+
+    div_exibir.innerHTML = `Temperatura sorteada: ${temperatura}<br>`
+
+    if (temperatura < 1) {
+        div_exibir.innerHTML += `Dá pra conservar qualquer alimento`;
+    } else if (temperatura >= 1 && temperatura <=10) {
+        div_exibir.innerHTML += `Conserva a maioria dos alimentos`;
+    } else {
+        div_exibir.innerHTML += `Estraga a maioria dos alimentos`;
+    }
+    }
+</script>

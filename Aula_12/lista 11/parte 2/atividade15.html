@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="verificar()">Sortear Número</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+    let pares = 0;
+    let impar = 0;
+
+    function verificar(){
+        let num = Math.floor(Math.random() * ((-30) - (-9)) + (-9))
+
+        if (num % 2 === 0) {
+            pares++
+        } else {
+            impar++
+        }
+
+         div_exibir.innerHTML = `Número sorteado: ${num}<br>
+                                 Números pares: ${pares}<br>
+                                 Números impares: ${impar}`;
+        }
+</script>

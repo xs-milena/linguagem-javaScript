@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   Nome: <input type="text" id="ipt_nome">
+   Número da sorte 1: <input type="text" id="ipt_num1" placeholder="entre 1-100">
+   Número da sorte 2: <input type="text" id="ipt_num2" placeholder="entre 1-100">
+   Número da sorte 3: <input type="text" id="ipt_num3" placeholder="entre 1-100">
+   <button onclick="verificar()">Sortear</button>
+   <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+    let contador = 0;
+
+    function verificar(){
+        div_exibir.innerHTML = ``;
+        let sorteio = Math.floor(Math.random() * 100);
+        let num1 = Number(ipt_num1.value);
+        let num2 = Number(ipt_num2.value);
+        let num3 = Number(ipt_num3.value);
+
+        if((num1 >=1 && num1 <=100) && (num2 >=1 && num2 <=100) && (num2 >=1 && num2 <=100)) {
+                contador++
+                if ((num1 === sorteio || num2 === sorteio || num3 === sorteio)) {
+                    div_exibir.innerHTML += `Parábens, ${ipt_nome.value} você foi sorteado(a) após ${contador} sorteios!`
+                } else {
+                    div_exibir.innerHTML += `Tente novamente!`
+                }
+        } else {
+                div_exibir.innerHTML = `Erro! insira um número de 1 a 100`
+        }
+    }
+</script>

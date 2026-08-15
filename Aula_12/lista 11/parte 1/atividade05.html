@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    img {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+<body>
+    <h1>Simulação - jo ken po</h1>
+    <button onclick="verificar()">Jogar</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+
+let escolha = ['pedra', 'papel', 'tesoura']
+let vitoria_jogador1 = 0;
+let vitoria_jogador2 = 0;
+
+function verificar(){
+
+    let jogardor1 = Math.floor(Math.random() * ((3-1)+1));
+    let jogador2 = Math.floor(Math.random() * ((3-1)+1));
+
+    let escolha_jogador1 = escolha[jogardor1];
+    let escolha_jogador2 = escolha[jogador2];
+
+    div_exibir.innerHTML = `<img src="../${escolha_jogador1}.png"> <img src="../${escolha_jogador2}.png"><br>`;
+
+    if (escolha_jogador1 == escolha_jogador2) {
+        div_exibir.innerHTML += `Empate! Jogue novamente!<br>`;
+    } else if ((escolha_jogador1 == 'pedra' && escolha_jogador2 =='tesoura') || (escolha_jogador1 == 'tesoura' && escolha_jogador2 =='papel') || (escolha_jogador1 == 'papel' && escolha_jogador2 == 'pedra')) {
+        vitoria_jogador1++;
+        div_exibir.innerHTML += `O jogador 1 venceu!<br>`;
+    } else {
+        vitoria_jogador2++;
+        div_exibir.innerHTML += `O jogador 2 venceu!<br>`;
+    }
+
+    div_exibir.innerHTML += `Jogador 1: ${vitoria_jogador1} vitória(s)<br>
+                             Jogador 2: ${vitoria_jogador2} vitória(s)<br>`;
+}
+
+</script>

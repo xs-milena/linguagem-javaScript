@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sortear</h1>
+    <button onclick="verificar()">sortear</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar(){
+        // entre 0 e 0.999
+        let num = Math.random();
+        div_exibir.innerHTML = `${num.toFixed(4)}`;
+    }
+</script>

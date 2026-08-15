@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        height: 150px;
+        width: 150px;
+    }
+</style>
+<body>
+    <h1>Sortear Time</h1>
+    <button onclick="verificar()">Sortear Time</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar(){
+        let time = Math.random() * (4 - 1) + 1;
+        time = time.toFixed(0);
+        
+        if (time <= 1) {
+        div_exibir.innerHTML = `<img src="../time.png" alt="">`;
+        } else if (time <= 2) {
+        div_exibir.innerHTML = `<img src="../time2.png" alt="">`;
+        } else if (time <= 3) {
+        div_exibir.innerHTML = `<img src="../time3.jpg" alt="">`;
+        } else {
+        div_exibir.innerHTML = `<img src="../time4.png" alt="">`;
+        }
+    }
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    
+</style>
+<body>
+    <button onclick="jogador01()">Dado Jogador 1</button>
+    <div id="div_dado1">
+    </div>
+    <button onclick="jogador02()">Dado Jogador 2</button>
+    <div id="div_dado2">
+    </div>
+    <button onclick="comparar()">Comparar Resultados</button>
+    <div id="div_comparar"></div>
+</body>
+</html>
+
+<script>
+
+    let lados = [1,2,3,4,5,6];
+    let vitoria_jogador1 = 0;
+    let vitoria_jogador2 = 0;
+
+    let jogador1 = 0;
+    let escolha_jogador1 = 0;
+
+    let jogador2 = 0;
+    let escolha_jogador2 = 0;
+
+    function jogador01(){
+        jogador1 = Math.floor(Math.random() * 6);
+        escolha_jogador1 = lados[jogador1];
+        div_dado1.innerHTML = `${escolha_jogador1}`;
+
+        
+    }
+
+    function jogador02() {
+        jogador2 = Math.floor(Math.random() * 6);
+        escolha_jogador2 = lados[jogador2];
+        div_dado2.innerHTML = `${escolha_jogador2}`
+    } 
+
+    function comparar() {
+    
+        if(escolha_jogador1 === escolha_jogador2) {
+            div_comparar.innerHTML = `empate!`;
+        }
+
+        if(escolha_jogador1 > escolha_jogador2) {
+            div_comparar.innerHTML = `Jogador 1 venceu!`;
+            vitoria_jogador1++
+        } 
+
+        if(escolha_jogador2 > escolha_jogador1) {
+            div_comparar.innerHTML = `Jogador 2 venceu!`;
+            vitoria_jogador2++
+        }
+
+         div_comparar.innerHTML = `Vitória jogador 1: ${vitoria_jogador1}<br>
+                                   Vitória jogador 2: ${vitoria_jogador2}`;
+    }
+    
+</script>

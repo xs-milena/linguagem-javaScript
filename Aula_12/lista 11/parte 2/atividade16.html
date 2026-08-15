@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   Nome: <input type="text" id="ipt_nome">
+   Número da sorte: <input type="text" id="ipt_num" placeholder="entre 1-10">
+   <button onclick="verificar()">Sortear</button>
+   <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+    let contador = 0;
+
+    function verificar(){
+        div_exibir.innerHTML = ``;
+        let sorteio = Math.floor(Math.random() * 10);
+        let num = Number(ipt_num.value);
+
+        if(num >=1 && num <=10) {
+                contador++
+                if (num === sorteio) {
+                    div_exibir.innerHTML += `Parábens, ${ipt_nome.value} você foi sorteado(a) após ${contador} sorteios!`
+                } else {
+                    div_exibir.innerHTML += `Tente novamente!`
+                }
+        } else {
+                div_exibir.innerHTML = `Erro! insira um número de 1 a 10`
+        }
+    }
+</script>
