@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    
+
+    // let fSomar = function (n1, n2) {
+    //     console.log(n1+n2);
+    // }
+
+    let fSomar = (n1, n2)  => { // ARROW Funtion - outra forma de representar uma função anonima
+        console.log(n1+n2);
+    }
+
+    let fDividir = function (n1,n2) {
+        console.log(n1/n2);
+    }
+
+    // Hight Order Funtion - função que recebe outra função como parametro
+    // vc está chamando a função
+    function executar(func, n1, n2) {
+        func(n1 , n2)
+    }
+
+</script>
