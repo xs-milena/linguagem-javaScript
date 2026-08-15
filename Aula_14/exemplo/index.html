@@ -1,0 +1,58 @@
+<!-- 
+    JSON
+    descrever objetos
+        - lista de dados
+        - agrupar caracteríticas não necessariamentes do mesmo valor, mas que fazem parte de uma coisa só
+
+        EXEMPLO:
+
+        {
+            "nome": "Manoel",
+            "idade": 24,
+            "notas": [10, 9],
+            "endereco":
+        }    
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    let aluno = {
+        "nome": "Manoel",
+        "idade": 24,
+        "notas": [10, 9],
+        "endereco": {
+            "rua": "Rua x",
+            "numero": 123
+        }
+    };
+
+    console.log(aluno);
+    console.log(`Meu nome é: ${aluno.nome}`);
+    console.log(`Minha idade é: ${aluno["idade"]}`)
+    console.log(`Minha primeira nota é: ${aluno.notas[0]}`)
+    console.log(`Minha rua é: ${aluno.endereco["rua"]}`)
+
+    let informacao = "endereco";
+
+    console.log(`Acessando ${informacao}: ${aluno.endereco["rua"]}`);
+
+    let novaInformacao = "altura";
+
+    //inserindo uma nova informação nova na chave JSON
+
+    aluno["altura"] = 1.78; // adicionando um valor
+    aluno.altura; // acessando um valor
+
+</script>
+</html>
