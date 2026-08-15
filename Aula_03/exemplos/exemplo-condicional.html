@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="input_idade">
+    <button onclick="mostrarMensagem()">Mostrar Mensagem</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function mostrarMensagem() {
+        let idade = Number(input_idade.value);
+        div_mensagem.innerHTML= "";
+
+        // if (idade == 18) { // = é atribuição e == é compraração. Se idade for = a 18
+        //     alert("Você tem 18 anos");
+        // }
+
+        // if (idade >= 18) {
+        //     alert("Você é maior de idade");
+
+        // } else {
+        //     alert("Você é menor de idade");
+        // }
+
+        // if(idade < 16) {
+        //     alert("Você não pode votar nem dirigir"); // se esse if for falso, ele vai para o else if
+        // } else if (idade < 18) {
+        //     alert("Pode votar, mas não pode dirifir")
+        // } else {
+        //     alert("Pode votar e dirigir");
+        // }
+        // alert("Fim do programa.");
+
+        
+        if (idade == 18) { // = é atribuição e == é compraração. Se idade for = a 18
+            div_mensagem.innerHTML += "Você tem 18 anos <br>";
+        }
+
+        if (idade >= 18) {
+             div_mensagem.innerHTML += "Você é maior de idade <br>";
+            
+        } else {
+             div_mensagem.innerHTML += "Você é menor de idade <br>";
+        }
+
+        if(idade < 16) {
+             div_mensagem.innerHTML += "Você não pode votar nem dirigir <br>"; // se esse if for falso, ele vai para o else if
+        } else if (idade < 18) {
+             div_mensagem.innerHTML += "Pode votar, mas não pode dirifir <br>";
+        } else {
+             div_mensagem.innerHTML += "Pode votar e dirigir <br>";
+        }
+        alert("Fim do programa.");
+    }
+</script>

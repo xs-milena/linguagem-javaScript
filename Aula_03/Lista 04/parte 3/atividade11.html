@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 11</title>
+</head>
+<body>
+    <h1>Analisador de Família: O Impacto dos Filhos no Entretenimento</h1>
+    <span>Quantidade de filhos:</span>
+    <input type="text" id="qnt_filhos">
+    <button onclick="calcular()">Analisar família</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<!-- nessa situação usamos tudo if pq é acumulativo, ou seja, mais de uma condição pode ser verdadeira. 
+if - uma condição
+else if - uma outra condição caso o if anterior for falso 
+else - caso todas as outras condições não sejam verdadeiras. 
+também é por essa razão que estamos usando o += no código, pois queremos que some a resposta anterior caso a qtd de filhos seja maior. pode testar, se você colocar somente o "=" vai apagar a resposta anterior -->
+
+<script>
+    function calcular() {
+        let filhos = Number(qnt_filhos.value);
+        exibir.innerHTML = "";
+
+        console.log ("Mensagem")
+
+         if (filhos == 0) {
+            exibir.innerHTML = "";
+            console.log ("Entrou no if")
+         }
+
+        if (filhos >= 1) {
+            exibir.innerHTML += "Não tem TV <br>";
+        }
+
+        if (filhos >=2) {
+            exibir.innerHTML += "Não tem internet <br>";
+        }
+        
+        if (filhos >=3) {
+            exibir.innerHTML += "Não tem video-game <br>";
+        }
+        
+        if (filhos >=4) {
+            exibir.innerHTML += "Não tem Netflix <br>";
+        }
+    }
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 15</title>
+</head>
+<body>
+    <h1>Banco XPTO: Monitoramento de Cheque Especial</h1>
+    <span>Saldo na conta:</span>
+    <input type="text" id="saldoConta">
+    <span>Valor do débito:</span>
+    <input type="text" id="debitoConta">
+    <button onclick="calcular()">Analisar conta</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    let saldo = 0;
+
+    function calcular() {
+       let debito = Number(debitoConta.value);
+       let saldo = Number(saldoConta.value) - debito;
+
+       if (saldo < 0) {
+        exibir.innerHTML = "<span style = 'color: red'> <b> O saldo atual da conta corrente é R$: " + saldo.toFixed(2) + "</b>";
+       } else {
+        exibir.innerHTML = "<span style = 'color: blue'> <b><i> O saldo atual da conta corrente é R$: " + saldo.toFixed(2) + "</b></i>";
+       }
+    }
+</script>

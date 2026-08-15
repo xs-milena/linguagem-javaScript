@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 13</title>
+</head>
+<body>
+    <h1>Verificação de Média: Aprovado ou Reprovado?</h1>
+    <span>Nota 1:</span>
+    <input type="text" id="nota1">
+    <span>Nota 2:</span>
+    <input type="text" id="nota2">
+    <button onclick="calcular()">Verificar situação</button>
+</body>
+</html>
+
+<script>
+
+    function calcular () {
+        let media = ((Number(nota1.value) + Number(nota2.value)) / 2);
+
+        if (media >= 6) {
+            alert("Parabéns, aprovado!");
+        } else {
+            alert("Tente outra vez...");
+        }
+    }
+</script>

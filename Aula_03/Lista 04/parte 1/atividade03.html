@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 03</title>
+</head>
+<body>
+    <h1>Média Escolar de Paty</h1>
+    <span><b>Digite suas notas:</b></span>
+    <div id="notas">
+        <span>Nota 1:</span>
+        <input type="number" id="input_nota1">
+        <br>
+        <span>Nota 2:</span>
+        <input type="number" id="input_nota2">
+        <br>
+        <span>Nota 3:</span>
+        <input type="number" id="input_nota3">
+        <button onclick="media()">Analisar desempenho</button>
+        <div id="div_desempenho"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    function media() {
+        media = ((Number(input_nota1.value) + Number(input_nota2.value) + Number(input_nota3.value)) / 3);
+
+        if (media < 9.4 ) {
+            div_desempenho.innerHTML = "Sua média foi de: " + media;
+        } else {
+            div_desempenho.innerHTML = "Parábens, você é fora de série!";
+        }
+    }
+</script>

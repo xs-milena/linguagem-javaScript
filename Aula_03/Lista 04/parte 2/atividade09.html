@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 09</title>
+</head>
+<body>
+    <h1>Tempo Gasto com Séries</h1>
+    <span>Qual foi a última série que você assistiu?</span>
+    <input type="text" id="serie">
+    <span>Quantos episódios você assistiu?</span>
+    <input type="text" id="episodios">
+    <button onclick="calcular()">Verificar nível</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    function calcular () {
+      let mensagem = serie.value;
+      let horas = Number(episodios.value) * 22;
+
+      if (horas > 1800) { //1800 min = 30horas
+          exibir.innerHTML = "Vejo que você gosta da serie: " + mensagem + ". Uau, você realmente gosta dessa série!";
+      } else {
+          exibir.innerHTML = "Vejo que você gosta da serie: " + mensagem;
+      }
+    }
+</script>

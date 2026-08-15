@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 04</title>
+</head>
+<body>
+    <h1>Divisão Justa da Pizza (Com Estilo)</h1>
+    <span>Qual o valor da pizza?</span>
+    <input type="number" id="input_pizza">
+    <span>Quantos amigos no total?</span>
+    <input type="number" id="input_amigos">
+    <button onclick="calcular()">Rola a pizza?</button>
+    <div id="div_valor"></div>
+</body>
+</html>
+
+<script>
+    function calcular () {
+        let valor_pizza = (Number(input_pizza.value) / Number(input_amigos.value));
+
+        if (valor_pizza < 20) {
+            div_valor.innerHTML = "Cada amigo vai pagar R$: " + valor_pizza;
+        } else {
+            div_valor.innerHTML = "<span style= 'color: red'> <b><i>Cada amigo vai pagar R$: " + valor_pizza + ". Deu ruim! Pizza muito cara! </b></i>";
+        }
+    }
+</script>

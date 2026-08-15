@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_idade">
+    <button onclick="mostrarMensagem()">Mostrar Mensagem</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+function mostrarMensagem() {
+
+    let idade = Number(ipt_idade.value);
+
+    div_mensagem.innerHTML = "";
+
+    if (idade == 18) {
+        div_mensagem.innerHTML += "<span style='color: red'>Você tem 18 anos</span> <br>";
+    }
+
+    if (idade >= 18) {
+        div_mensagem.innerHTML += "Você é maior de idade <br>";
+    } else {
+        div_mensagem.innerHTML += "Você é menor de idade <br>";
+    }
+
+    // let mensagem = idade >= 18 
+    //     ? "Você é maior de idade <br>"
+    //     : "Você é menor de idade <br>";
+    
+    // div_mensagem.innerHTML += mensagem;
+
+    if (idade < 16) {
+        div_mensagem.innerHTML += "Não pode votar nem dirigir <br>";
+    } else if (idade < 18) {
+        div_mensagem.innerHTML += "Pode votar mas não pode dirigir <br>";
+    } else {
+        div_mensagem.innerHTML += "Pode votar e dirigir <br>";
+    }
+
+    div_mensagem.innerHTML += "Fim do programa. <br>";
+}
+</script>

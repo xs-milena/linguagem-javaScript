@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 10</title>
+</head>
+<body>
+    <h1>Situação Financeira da Conta Bancária</h1>
+
+    <span>Saldo no banco:</span>
+    <input type="text" id="saldo">
+    <button onclick="calcular()">Verificar finanças</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    function calcular () {
+        let saldoConta = Number(saldo.value);
+
+        if (saldoConta == 0) {
+            exibir.innerHTML = "<span style = 'color: black'> Conta zerada." 
+        } else if (saldoConta < 0) {
+            exibir.innerHTML = "<span style = 'color: redd'> Está devendo!" 
+        } else {
+            exibir.innerHTML = "<span style = 'color: blue'> Saldo positivo! Ótimo :)." 
+        }
+    }
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 02</title>
+</head>
+<body>
+    <h1>Consumo Anual de Refrigerante</h1>
+    <span>Joka, quantas latinhas você toma por dia?</span>
+    <input type="text" id="input_latinhas">
+    <button onclick="calcular()">Quantos refris?</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        let latinhas = Number(input_latinhas.value);
+        let resultado = latinhas * 360;
+
+        if (latinhas < 500) {
+        div_exibir.innerHTML = "Você consome " + resultado + " latinhas por ano.";
+        } else {
+        div_exibir.innerHTML = "Você consome " + resultado + " latinhas por ano. Cuidado com a diabetes!";
+        }
+    }
+</script>

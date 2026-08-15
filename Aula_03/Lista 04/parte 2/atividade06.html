@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 06</title>
+</head>
+<body>
+    <h1>Parte 02 - Estrutura de Decisão (IF/ELSE)</h1>
+    <span>Renda familiar:</span>
+    <input type="number" id="renda_familiar">
+    <span>Valor da prestação:</span>
+    <input type="" id="valor_prestacao">
+    <button onclick="calcular()">Ver financiamento</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        let prestacao = ((Number(valor_prestacao.value) / Number(renda_familiar.value)) * 100);
+
+        div_exibir.innerHTML = "A prestação corresponde a " + prestacao.toFixed(2) + "% da renda familiar";
+
+        if (prestacao >= 30) {
+            div_exibir.innerHTML = "A prestação corresponde a " + prestacao.toFixed(2) + "% da renda familiar. <br>" + "<span style = 'color: red'> <b>Será necessário complementar a renda familiar.</b>";
+        }
+    }
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 12</title>
+</head>
+<body>
+    <h1>Controle de Peso no Elevador: Segurança em Primeiro Lugar  </h1>
+    <span>Peso total num elevador:</span>
+    <input type="text" id="peso">
+    <button onclick="calcular()">Ligar elevador...</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function calcular () {
+        let pesoTotal = Number(peso.value);
+
+        if  (pesoTotal < 500) {
+            alert("Elevador vai se mover");
+        } else {
+            alert("Alguém precisa descer do elevador")
+        }
+    }
+</script>
