@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome da música:<input type="text" id="ipt_musica">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="div_exibir"></div>
+    De:<input type="text" id="ipt_intervalo1">
+    Até:<input type="text" id="ipt_intervalo2">
+    <button onclick="filtrar()">Filtrar</button>
+    <div id="exibir_musicas"></div>
+</body>
+</html>
+
+<script>
+
+    let musicas = [];
+
+    function cadastrar(){
+        div_exibir.innerHTML = ``;
+        let nome_musica = ipt_musica.value;
+        musicas.push(nome_musica);
+
+        for(let i = 0; i < musicas.length; i++) {
+            div_exibir.innerHTML += `${musicas[i]}<br>`;
+        }
+    }
+
+    function filtrar(){
+        exibir_musicas.innerHTML = ``;
+        let intervalo1 = +ipt_intervalo1.value - 1; //não considera o zero
+        let intervalo2 = +ipt_intervalo2.value - 1;
+
+        for(let i = intervalo1;  i <= intervalo2; i++) {
+        exibir_musicas.innerHTML += `${i + 1}-${musicas[i]}<br>` // temos que add para começar a partir de 1
+        console.log(musicas);
+        }
+    }
+</script>

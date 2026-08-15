@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do produto: <input type="text" id="ipt_nome">
+    Preço do produto: <input type="text" id="ipt_preco">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar Estoque</button>
+    <br>
+    <div id="div_exibir"></div>
+    <select name="lista_preco" id="lista_preco">
+        <option value="acima">Preços acima de</option>
+        <option value="abaixo">Preços abaixo de</option>
+    </select>
+    Valor filtrar:<input type="text" id="ipt_valor">
+    <button onclick="filtrar()">Filtrar Produtos</button>
+    <div id="div_filtrar"></div>
+</body>
+</html>
+
+<script>
+
+    let produto = [];
+    let preco = [];
+
+    function cadastrar(){
+        let nome = ipt_nome.value;
+
+        let preco_produto = Number(ipt_preco.value);
+     
+
+        if(nome.length >=3 && preco_produto > 0){
+            produto.push(nome);
+            preco.push(preco_produto);
+            alert(`Cadastro realizado com sucesso!`)
+        } else {
+            alert(`Cadastro incorreto!`)
+        }
+    }
+
+    function atualizar(){
+
+            div_exibir.innerHTML = ``;
+            let soma = 0;
+        
+            div_exibir.innerHTML = `Você tem ${produto.length} produto(s) cadastrados em estoque:<br>`
+
+            for(let j = 0; j < produto.length && j < preco.length; j++) {
+            soma += preco[j];
+            div_exibir.innerHTML += `${j + 1}. ${produto[j]} - R$: ${preco[j]}<br>`
+            }
+
+            div_exibir.innerHTML += `Seu estoque vale  R$: ${soma}`
+             
+    }
+
+    function filtrar() {
+
+        let opcao = lista_preco.value;
+        let valor_filtro = Number(ipt_valor.value);
+
+            for(let j = 0; j < produto.length && j < preco.length; j++) {
+            
+            if (opcao == 'acima') {
+                if(preco[j] > valor_filtro) {
+                    div_filtrar.innerHTML += `${j + 1}. ${produto[j]} - R$: ${preco[j]}<br>`
+                } else if (preco[j] < valor_filtro) {
+                     div_filtrar.innerHTML += `${j + 1}. ${produto[j]} - R$: ${preco[j]}<br>`
+                }
+            }
+        }
+    }
+</script>

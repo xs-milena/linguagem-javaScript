@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do filme: <input type="text" id="ipt_filme">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="div_contagem"></div>
+    <button onclick="listar()">Listar Filmes</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+    let filmes = [];
+
+    function cadastrar(){
+        div_contagem.innerHTML = ``;
+        let nome_filme = ipt_filme.value;
+        filmes.push(nome_filme);
+
+        for(let i = 0; i < filmes.length; i++) {
+            div_contagem.innerHTML = `Você já assistiu ${i + 1} filmes`
+        }   
+    }
+
+    function listar() {
+        div_exibir.innerHTML = ``;
+        for(let i = filmes.length - 1; i >= 0; i--) { // inversão
+            div_exibir.innerHTML += `Filme: ${filmes[i]}<br>`
+        }   
+    }
+</script>
