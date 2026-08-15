@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <input type="text" id="ipt_texto" oninput="analisar()"> 
+  <div id="div_mensagem"></div> 
+</body>
+</html>
+
+<script>
+
+function analisar() {
+    let texto = ipt_texto.value;
+    let tamanho_texto = texto.length; //o length conta os carcteres do texto - comprimento da frase
+
+    div_mensagem.innerHTML = `O tamaho do texto é: ${tamanho_texto} <br>`;
+
+    if (tamanho_texto >= 8) {
+        div_mensagem.innerHTML += `O texto tem 8 ou mais caracteres <br>`;
+    } else {
+        div_mensagem.innerHTML += `O texto tem menos de 8 caracteres <br>`;
+    }
+
+    let indice_ponto_com = texto.indexOf(".com"); //retorna em que posição o .com aparece depois de X caracteres
+    div_mensagem.innerHTML += `Indíce do .com ${indice_ponto_com} <br>`;
+
+    //DESAFIO: Obter o índice do @
+    //Validar se o @ está antes ou depois do .com
+
+    let indice_arroba = texto.indexOf("@"); //definição do indexOf (será o @)
+    let arroba_antes_ponto_com = indice_arroba < indice_ponto_com; // O @ tem que vir antes do .com 
+    let termina_com_ponto_com = texto.endsWith(".com"); // o texto tem que terminar com .com
+    let termina_com_ponto_com_ponto_br = texto.endsWith(".br"); // o texto tem que terminar com .com.br
+
+    if (arroba_antes_ponto_com && indice_arroba > -1 && indice_ponto_com >-1) {
+        div_mensagem.innerHTML += `É um email válido <br>`;
+    } else {
+    div_mensagem.innerHTML += `Não é um email válido <br>`;
+    }
+
+    if (tamanho_texto > 0) { //se o tamanho do texto for maior que o, então:
+    let primeira_letra = texto[0]; //primeira letra do texto (conta a partir de 0)
+    let ultima_letra = texto[tamanho_texto - 1]; //última letra do texto 
+    div_mensagem.innerHTML += `Primeira Letra: ${primeira_letra} <br>`
+    div_mensagem.innerHTML += `Última Letra: ${ultima_letra} <br>`;
+    }
+
+    //includes: existe ou não dentro do texto. Somente o que estiver dentro da caixinha
+
+    let tem_sptech = texto.includes("sptech");
+
+    if (tem_sptech) {
+        div_mensagem.innerHTML += `Contém SPTECH <br>`; 
+    } else {
+        div_mensagem.innerHTML += 'NÃO contém SPTECH <br>';
+    }
+
+    let texto_apenas_minusculas = texto.toLowerCase();
+    let texto_apenas_maiusculas = texto.toUpperCase();
+
+    div_mensagem.innerHTML += `Apenas minúsculas: ${texto_apenas_minusculas} <br>`;
+    div_mensagem.innerHTML += `Apenas maiúsculas: ${texto_apenas_maiusculas} <br>`;
+
+    //substring pega um pedaço de texto
+    let pedaco_de_texto = texto.substring(4, 10);
+    div_mensagem.innerHTML += `Pedaço do texto (entre 4 e 10): ${pedaco_de_texto}<br>`
+
+
+
+    //Desafio: independentemente de como o texto estiver escrito. Transforme apenas a primeira letra em maiúscula e6 o restante em minúscula
+
+    let texto_formatado = texto[0].toUpperCase() + texto.substring(1).toLowerCase();
+    div_mensagem.innerHTML += `Texto formatado: ${texto_formatado} <br>`;
+
+    let texto_com_1_no_lugar_do_i = texto.replace("i", "1");
+    div_mensagem.innerHTML += `Texto com 1 no l lugar do i: ${texto_com_1_no_lugar_do_i} <br>`;
+
+    // regex: verificar se tem algo no texto
+
+    let regex = new RegExp("[0-9]");
+    let contem_numeros = regex.test(texto);
+
+    if (contem_numeros) {
+        div_mensagem.innerHTML += `O texto contém números <br>`
+    } else {
+        div_mensagem.innerHTML += `O texto NÃO contém números <br>`
+    }
+
+    // replace = substituir
+}
+</script>

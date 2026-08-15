@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Autenticação Segura: Acesso ao Banco Melete</h1>
+    <span>Login:</span>
+    <input type="text" id="ipt_login">
+    <span>Senha:</span>
+    <input type="text" id="ipt_senha">
+    <span>Informação pessoal:</span>
+    <input type="text" id="ipt_infoPessoal">
+    <button onclick="verificar()">Autenticar</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    let contador = 3;
+
+    function verificar() {
+        exibir.innerHTML = ``;
+        let login = ipt_login.value;
+        let senha = ipt_senha.value;
+        let info = ipt_infoPessoal.value;
+
+        if (contador > 0) {
+            if (login == 'ana' && senha == 'braga' && (info == '1949' || info == 'louro josé')) {
+                exibir.innerHTML = `Usuário autenticado`;
+                contador = 3;
+            } else {
+                contador --;
+                exibir.innerHTML = `Falha na autenticação <br>`;
+                exibir.innerHTML += `Você ainda tem ${contador} tentativa(s)`;
+            } 
+        } else {
+                exibir.innerHTML += `Usuário BLOQUEADO! Procure seu gerente!`
+        }
+        
+    }
+</script>

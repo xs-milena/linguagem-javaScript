@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+    img {
+        width: 125px;
+        height: 125px;
+    }
+
+</style>
+<body>
+    <h1> Simulador de Preferências de Compras: Será que Robervaldo Gostaria?</h1>
+    <span>Tamanho da tela do celular encontrado</span>
+    <input type="text" id="ipt_tela">
+    <span>Cor do celular encontrado</span>
+    <input type="text" id="ipt_cor">
+    <button onclick="verificar()">Será que ele gosta?</button>
+    <div id="exibir"></div>
+</body>
+</html>
+<script>
+    function verificar () {
+        let telaPreferencia = Number(ipt_tela.value) == 6.8 ;
+        let corPreferencia = ipt_cor.value == 'Preto' || 'Prata' || 'Azul' || 'Vermelho';
+
+        if (telaPreferencia && corPreferencia) {
+            exibir.innerHTML = '<img src="/img/happy.jpeg">'
+        } else {
+            exibir.innerHTML = '<img src="/img/decepcao.jpeg">' 
+        }
+    }
+</script>

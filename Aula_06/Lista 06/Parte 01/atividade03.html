@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simulador de Preço do Bilhete Único de São Paulo</h1>
+    <select name="" id="ipt_passageiro">
+        <option value="Comum">Comum</option>
+        <option value="Estudante">Estudante</option>
+        <option value="Idoso/PNE">Idoso/PNE</option>
+    </select>
+    <select name="" id="ipt_passagem">
+        <option value="Passagem única">Passagem única</option>
+        <option value="Passagem integração">Passagem integração</option>
+    </select>
+
+    <button onclick="verificar()">Simular preço</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    function verificar() {
+        let passageiro = ipt_passageiro.value;
+        let passagem = ipt_passagem.value;
+        let precoFinal = 0;
+        
+        if (passageiro == 'Comum' && passagem == 'Passagem única') {
+            precoFinal = 4.40;
+        } else if (passageiro == 'Comum' && passagem == 'Passagem integração') {
+            precoFinal = 5.90;
+        }
+
+        
+        if (passageiro == 'Estudante' && passagem == 'Passagem única') {
+            precoFinal = 4.40 - (4.40 * 0.5); // transforma porcentagem em decimal
+        } else if (passageiro == 'Estudante' && passagem == 'Passagem integração') {
+            precoFinal = 5.90 - (5.90 * 0.5); 
+        }
+
+        if (passageiro == 'Idoso/PNE') {
+        precoFinal = 0 ;
+        }
+
+        exibir.innerHTML = `Valor final da passagem: ${precoFinal.toFixed(2)}`;
+}
+
+    
+
+
+</script>

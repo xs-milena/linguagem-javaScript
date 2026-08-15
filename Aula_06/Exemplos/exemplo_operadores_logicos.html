@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Você pode entrar?</h1>
+    <p>Digite sua idade:</p>
+    <input type="text" id="ipt_idade">
+    <p>Está acompanhado de um adulto?:</p>
+    <input type="text" id="ipt_adulto">
+    <p>Tem convite?</p>
+    <input type="text" id="ipt_convite">
+    <button onclick="validarEntrada()">Posso entrar?</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+function validarEntrada() {
+    let idade = Number(ipt_idade.value);
+    let convite = ipt_convite.value;
+    let adulto = ipt_adulto.value;
+
+    // &&, ||
+
+    // if (idade >= 18 && convite == "sim") {
+    //     div_mensagem.innerHTML = "Pode entrar!";
+    // } else {
+    //     div_mensagem.innerHTML = "Não pode entrar!";
+    // }
+
+    let maiorDeIdade = idade >= 18;
+    let temConvite = convite == "sim";
+    let estaAcompanhado = adulto == "sim";
+
+    if ((maiorDeIdade || estaAcompanhado) && temConvite) {
+        div_mensagem.innerHTML = "Pode entrar!";
+    } else {
+        div_mensagem.innerHTML = "Não pode entrar!";
+    }
+
+
+    // if (maiorDeIdade && temConvite) {
+    //     div_mensagem.innerHTML = "Pode entrar!";
+    // } else {
+    //     div_mensagem.innerHTML = "Não pode entrar!";
+    // }
+
+    // if (idade >= 18 && convite == 'sim') {
+    //     div_mensagem.innerHTML = 'Você pode entrar na festa'
+    // } else if (idade < 18, convite == 'não') {
+    //     div_mensagem.innerHTML = 'Você não pode entrar na festa'
+    // }
+
+    // if (!maiorDeIdade || !temConvite) {
+    //     div_mensagem.innerHTML = "Não pode entrar!";
+    // } else {
+    //     div_mensagem.innerHTML = "Pode entrar!";
+    // }
+
+    //    if ((maiorDeIdade || temAcompanhante) && temConvite)
+    //     div_mensagem.innerHTML = 'Você pode entrar na festa';
+    // else {
+    //     div_mensagem.innerHTML = 'Você não pode entrar na festa';
+    // }
+}
+</script>
