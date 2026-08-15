@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Agenda Semanal</h3>
+    <button onclick="exibir()">Ver agenda</button>
+    <div id="div_exibir">
+        <p>Agenda semanal:</p>
+    </div>
+</body>
+</html>
+
+<script>
+
+    let agenda = [
+        ["Estudar", "Academia", "Trabalhar", "Estudar"],
+        ["Estudar", "Academia", "Trabalhar", "Estudar"],
+        ["Estudar", "Academia", "Trabalhar", "Estudar"],
+        ["Estudar", "Academia", "Trabalhar", "Estudar"],
+        ["Estudar", "Academia", "Trabalhar", "Estudar"],
+        ["Estudar", "Estudar", "Academia", "Livre"],
+        ["Livre", "Livre", "Livre", "Livre"],
+    ]
+
+function exibir() {
+
+    let horarios_livres = 0;
+    let horarios_estudar = 0;
+    let horarios_academia = 0;
+    let horarios_trabalhar = 0;
+
+    for(let linha = 0; linha < agenda.length; linha++) {
+        
+        div_exibir.innerHTML += `<b>Dia ${linha+1}: </b>`
+
+        for(let coluna = 0; coluna < agenda[linha].length; coluna++) {
+
+            if(agenda[linha][coluna] == "Livre") {
+                horarios_livres++;
+            }
+
+            if(agenda[linha][coluna] == "Academia") {
+                horarios_academia++;
+            }
+
+            if(agenda[linha][coluna] == "Trabalhar") {
+                horarios_trabalhar++;
+            }
+
+            if(agenda[linha][coluna] == "Estudar") {
+                horarios_estudar++;
+            }
+
+            div_exibir.innerHTML += `${agenda[linha][coluna]}`
+
+           if(coluna < agenda[linha].length - 1) { // coluna < q o último add |
+                            div_exibir.innerHTML += ` | `;
+                        } else {
+                            div_exibir.innerHTML += `<br>`; // coluna == último pula linha
+                        }
+        }
+    }
+
+    div_exibir.innerHTML += `<br>Quantidade de horários livres: ${horarios_livres}<br>`
+
+    if ((horarios_estudar > horarios_academia) || (horarios_estudar > horarios_trabalhar)) {
+        div_exibir.innerHTML += `Atividade mais frequente: Estudar`
+    } else if ((horarios_academia > horarios_estudar) || (horarios_academia > horarios_trabalhar)) {
+        div_exibir.innerHTML += `Atividade mais frequente: Academia`
+    } else if ((horarios_trabalhar > horarios_estudar) || (horarios_trabalhar > horarios_academia)) {
+        div_exibir.innerHTML += `Atividade mais frequente: Academia`
+}
+}
+</script>

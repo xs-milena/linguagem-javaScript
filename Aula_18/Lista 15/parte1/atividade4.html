@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Soma de Valores da Matriz</h3>
+    <button onclick="exibir()">Ver cálculo</button>
+    <p>Matriz:</p>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+
+let matriz = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+]
+
+function exibir() {
+
+    let soma = 0;
+    let media = 0;
+    let maior_numero = 0;
+    let quantidade_de_elementos_totais = 0;
+
+    for(let linha = 0; linha < matriz.length; linha++) {
+
+        for(let coluna = 0; coluna < matriz[linha].length; coluna++) {
+
+            soma += matriz[linha][coluna];
+            quantidade_de_elementos_totais++;
+
+            div_exibir.innerHTML += `${matriz[linha][coluna]}`
+
+            if(coluna < matriz[linha].length - 1) {
+                div_exibir.innerHTML += ` `; 
+            } else {
+               div_exibir.innerHTML += `<br>`
+            }
+
+            if(matriz[linha][coluna] > maior_numero) {
+                maior_numero = matriz[linha][coluna];
+            } else {
+                continue;
+            }
+        }
+    }
+
+    media = soma / quantidade_de_elementos_totais;
+    
+    div_exibir.innerHTML += `Soma de todos os números: ${soma}<br>`;
+    div_exibir.innerHTML += `Média: ${media.toFixed(1)}<br>`;
+    div_exibir.innerHTML += `Maior número da matriz: ${maior_numero}`
+}
+</script>

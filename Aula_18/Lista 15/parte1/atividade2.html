@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Tabuleiro de Jogo</h3>
+    <button onclick="exibir()">Exibir Tabuleiro</button>
+    <p>Tabuleiro:</p>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+    let tabuleiro = [
+        ["O", "O", "X", "O", "O"],
+        ["X", "O", "O", "O", "X"],
+        ["O", "O", "X", "O", "X"],
+        ["X", "O", "O", "O", "X"],
+        ["O", "O", "X", "O", "O"],
+    ]
+
+function exibir() {
+
+    div_exibir.innerHTML += ` `;
+
+    for(linha = 0; linha < tabuleiro.length; linha++) {
+
+        for(let coluna = 0; coluna < tabuleiro[linha].length; coluna++) {
+
+            div_exibir.innerHTML += `${tabuleiro[linha][coluna]}`;
+
+            if(coluna < tabuleiro[linha].length - 1) {
+                div_exibir.innerHTML += ` `; 
+            } else {
+               div_exibir.innerHTML += `<br>`
+            }
+
+        }
+
+     }
+}
+</script>

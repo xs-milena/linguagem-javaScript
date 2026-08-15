@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Mapa de Assentos do Cinema</h3>
+    <button onclick="exibir()">Exibir Mapa de Assentos</button>
+    <p>Assentos Livres e Ocupados:<br></p>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+      
+      let cinema = [
+        ["Livre", "Ocupado", "Livre", "Livre"],
+        ["Ocupado", "Ocupado", "Livre", "Livre"],
+        ["Livre", "Livre", "Ocupado", "Livre"],
+      ]
+
+      function exibir() {
+
+        div_exibir.innerHTML = ``;
+
+        for(let linha = 0; linha < cinema.length; linha++) {
+
+             div_exibir.innerHTML += `<b>Linha: ${linha+1}</b>: `;
+
+                    for(let coluna = 0; coluna < cinema[linha].length; coluna++) {
+
+                        div_exibir.innerHTML += `${cinema[linha][coluna]}`;
+
+                        if(coluna < cinema[linha].length - 1) { // coluna < q o último add |
+                            div_exibir.innerHTML += ` | `;
+                        } else {
+                            div_exibir.innerHTML += `<br>`; // coluna == último pula linha
+                        }
+                        
+                    }
+            }
+
+        }
+</script>
