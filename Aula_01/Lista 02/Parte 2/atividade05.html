@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 05</title>
+</head>
+<body>
+    <h1>Opinião da mãe e da avó </h1>
+    <span>Insira sua nota na escola:</span>
+    <input type="text" id="input_nota">
+
+    <button onclick="respostaVo()">opinião da avó</button>
+    <button onclick="respostaMae()">opinião da mãe</button>
+    <span id="resposta"></span>
+</body>
+</html>
+
+<script>
+    function respostaVo() {
+      resposta.innerHTML = "Muito bem, que neto inteligente, porque tirou " + input_nota.value;
+    }
+
+    function respostaMae() {
+        resposta.innerHTML = "Não fez mais que tua obrigação com essa nota " + input_nota.value;
+    }
+</script>

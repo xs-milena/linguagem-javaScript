@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 06</title>
+</head>
+<body>
+  <button onclick="pare()">Pare</button>
+  <button onclick="pense()">Pense</button> <!-- ao clicar, ele irá executar a função Pare. / onclick="pare() é a declaração da função" -->
+  <button onclick="siga()">Siga</button> 
+  <span id="resposta">oi</span> <!-- onde a mensagem irá aparecer após clicar no botão / definir ID -->
+</body>
+</html>
+
+<script>
+  // função para o botão Pare
+  function pare(){
+    resposta.innerHTML = "Pare e aguarde!"; //ao clicar, irá aparecer essa mensagem impressa na tela
+  }
+  function pense() {
+    resposta.innerHTML = "Pense se pode seguir ou se deve parar!";
+  }
+   function siga() {
+    resposta.innerHTML = "Pode seguir a diante.";
+  }
+</script>
