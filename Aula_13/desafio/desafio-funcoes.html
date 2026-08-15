@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="desafio-funcoes.js"></script>
+</head>
+<body>
+    Escreva: <input type="text" id="ipt_elemento">
+    <button onclick="adicionarNoFinal()">Adicionar</button>
+    <div id="div_adicionar"></div>
+    Remova Fim: <input type="text" id="ipt_removerFinal">
+    <button onclick="removerDoFinal()">Remover do FInal</button>
+    <div id="div_removerFinal"></div>
+    Remova Inicio: <input type="text" id="ipt_removerInicio">
+    <button onclick="removerDoInicio()">Remover do Inicio</button>
+    <div id="div_removerInicio"></div>
+</body>
+</html>
+
+<script>
+
+    function adicionarNoFinal() {
+        let elemento = ipt_elemento.value;
+
+        let resultado = funcao_adicionar(lista, elemento);
+
+        div_adicionar.innerHTML = `${resultado}`
+    }
+
+    function removerDoFinal() {
+        let remover = ipt_removerFinal.value;
+        
+        let resultado = funcao_removerFInal(lista, remover);
+
+        div_removerFinal.innerHTML = `${resultado}`
+    }
+
+    function removerDoInicio(){
+        let remover = ipt_removerFinal.value;
+        
+        let resultado = funcao_removerInicio(lista, remover);
+
+        div_removerInicio.innerHTML = `${resultado}`
+    }
+</script>

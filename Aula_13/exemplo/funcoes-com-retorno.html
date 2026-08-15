@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Nota:</p>
+    <input type="text" id="ipt_nota">
+    <p>Frequência (%):</p>
+    <input type="text" id="ipt_frequencia">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script src="funcoes.js"></script>
+<script>
+let notas = [];
+let frequencias = [];
+
+function cadastrar() {
+    let nota = Number(ipt_nota.value);
+    notas.push(nota);
+
+    let frequencia = Number(ipt_frequencia.value);
+    frequencias.push(frequencia);
+
+    let mediaNotas = calcularMedia(notas);
+    let mediaFrequencias = calcularMedia(frequencias);
+
+    div_mensagem.innerHTML = "";
+    div_mensagem.innerHTML += `A média das notas é: ${mediaNotas.toFixed(2)} <br>`;
+    div_mensagem.innerHTML += `A média das frequências é: ${mediaFrequencias.toFixed(2)} <br>`;
+}
+
+// function calcularMedia(lista) {
+//     let soma = 0;
+//     for (let i = 0; i < lista.length; i++) {
+//         soma += lista[i];
+//     }
+
+//     let media = soma / lista.length;
+//     return media;
+// }
+
+// Usando return apenas para interromper a função
+function pesquisarV1(lista, busca) {
+    for (let i = 0; i < lista.length; i++) {
+        if (lista[i] == busca) {
+            console.log("Encontrei");
+            return;
+        }
+    }
+    
+    console.log("Não encontrei");
+}
+
+// Usando return para devolver o índice
+function pesquisarV2(lista, busca) {
+    for (let i = 0; i < lista.length; i++) {
+        if (lista[i] == busca) {
+            console.log("Encontrei");
+            return i;
+        }
+    }
+    
+    console.log("Não encontrei");
+    return -1;
+}
+
+</script>

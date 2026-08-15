@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="matematica.js"></script>
+</head>
+<body>
+    <h3>Somar dois números</h3>
+    Número 1:<input type="text" id="ipt_num1">
+    Número 2: <input type="text" id="ipt_num2">
+    <button onclick="somar()">Somar</button>
+    <div id="div_soma"></div>
+
+    <h3>Cálcular distância entre dois pontos</h3>
+    x1: <input type="text" id="ipt_x1">
+    y1: <input type="text" id="ipt_y1">
+    x2: <input type="text" id="ipt_x2">
+    y2: <input type="text" id="ipt_y2">
+    <button onclick="calcularDistancia()">Calcular Distância</button>
+    <div id="div_distancia"></div>
+
+    <h3>Converter segundos para hora:minuto:segundo</h3>
+    Número: <input type="text" id="ipt_seg">
+    <button onclick="converterParaHoraMinutoSegundo()">Converter</button>
+    <div id="div_conversao"></div>
+
+    <h3>Validar número primo</h3>
+    Número: <input type="text" id="ipt_num">
+    <button onclick="ePrimo()">Converter</button>
+    <div id="div_primo"></div>
+
+    <h3>Calcula fatoria de um número</h3>
+    Número: <input type="text" id="ipt_fatorial">
+    <button onclick="calcularFatorial()">Converter</button>
+    <div id="div_fatorial"></div>
+
+    <h3>Calcular média</h3>
+    Número: <input type="text" id="ipt_media">
+    <button onclick="calcularMedia()">Converter</button>
+    <div id="div_media"></div>
+
+    <!-- <h3>Calcular média ponderada</h3>
+    Médias: <input type="text" id="ipt_medias">
+    Pesos: <input type="text" id="ipt_pesos">
+    <button onclick="ccalcularMedia()">Converter</button>
+    <div id="div_mediaPonderada"></div> -->
+
+</body>
+</html>
+
+<script>
+function somar() {
+    let numero1 = Number(ipt_num1.value);
+    let numero2 = Number(ipt_num2.value);
+
+    fazer_soma(numero1, numero2);  //chamando a função 
+    div_soma.innerHTML = `Soma dos números: ${fazer_soma(numero1, numero2)}`
+
+}
+
+function calcularDistancia(){ // ao apertar no botão, ele irá chamar as outras funções
+    let x1 = Number(ipt_x1.value);
+    let y1 = Number(ipt_y1.value);
+    let x2 = Number(ipt_x2.value);
+    let y2 = Number(ipt_y2.value);
+
+    fazer_distancia(x1, y1, x2, y2);  //chamando a função 
+    div_distancia.innerHTML = `Cálculo da distância: ${fazer_distancia(x1, y1, x2, y2)}`
+
+}
+
+function converterParaHoraMinutoSegundo(){
+    let numero = Number(ipt_seg.value);
+
+    fazer_conversao(numero)
+    div_conversao.innerHTML = `Conversão: ${fazer_conversao(numero)}`;
+}
+
+function ePrimo(){
+    let numero = Number(ipt_num.value);
+
+    fazer_verificacao(numero)
+    div_primo.innerHTML = ` ${numero} é número primo? ${fazer_verificacao(numero)}`;
+}
+
+function calcularFatorial(){
+    let numero = Number(ipt_fatorial.value);
+
+    fazer_fatoria(numero)
+    div_fatorial.innerHTML = `Resultado: ${fazer_fatoria(numero)}`;
+}
+
+let vetor = [];
+function calcularMedia(){
+    let numero_vetor = Number(ipt_media.value);
+
+    vetor.push(numero_vetor);
+    
+    fazer_media(vetor)
+    div_media.innerHTML = `Resultado: ${fazer_media(vetor)}`;
+}
+
+// function calcularMediaPonderada(){
+//     let vetorMedias = Number(ipt_medias.value);
+//     let vetorPesos = Number(ipt_pesos.value);
+
+//     fazer_mediaPonderada(numero)
+//     div_mediaPonderada.innerHTML = `Resultado: ${fazer_mediaPonderada(vetorMedias, vetorPesos)}`;
+// }
+
+</script>
+
